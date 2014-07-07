@@ -15,6 +15,7 @@ gem 'paperclip'
 gem 'carrierwave'
 gem 'devise'
 gem 'rmagick'
+gem 'devise_invitable'
 
 # Use unicorn as the app server
 # gem 'unicorn'
