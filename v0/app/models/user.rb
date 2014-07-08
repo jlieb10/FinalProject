@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :user_hunts
+  has_many :hunts, through: :user_hunts
+  has_many :apartments, through: :hunts
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :invitable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
