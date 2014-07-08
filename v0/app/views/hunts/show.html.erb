@@ -2,6 +2,12 @@
   <strong>Title:</strong>
   <%= @hunt.title %>
 </p>
+<h3>apartments:</h3>
+<ul>
+   <% @hunt.apartments.each do |apartment| %>
+  <li><%= apartment.address %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Add New Apartment', new_hunt_apartment_path(@hunt) %> |
 <%= link_to 'Edit', edit_hunt_path(@hunt) %> |
