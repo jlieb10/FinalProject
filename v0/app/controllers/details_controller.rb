@@ -14,6 +14,8 @@ class DetailsController < ApplicationController
 
   # GET /details/new
   def new
+    @hunt = Hunt.find()
+    @apartment = Apartment.find
     @detail = Detail.new
   end
 

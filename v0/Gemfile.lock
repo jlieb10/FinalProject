@@ -32,6 +32,8 @@ GEM
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -62,6 +64,7 @@ GEM
       gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.1)
+    debug_inspector (0.0.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -186,6 +189,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
+  binding_of_caller
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)
