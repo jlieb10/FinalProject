@@ -3,5 +3,6 @@
   <%= @hunt.title %>
 </p>
 
+<%= link_to 'Add New Apartment', new_hunt_apartment_path(@hunt) %> |
 <%= link_to 'Edit', edit_hunt_path(@hunt) %> |
 <%= link_to 'Back', hunts_path %>

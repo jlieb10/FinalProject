@@ -22,6 +22,7 @@ group :development, :test do
   gem "capybara"
   gem "cucumber"
   gem "rspec"
+  gem "pry"
 end
 
 # Use unicorn as the app server
