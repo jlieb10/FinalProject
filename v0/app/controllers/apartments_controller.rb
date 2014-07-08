@@ -15,7 +15,6 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   def new
     @apartment = Apartment.new
-    binding.pry
   end
 
   # GET /apartments/1/edit
