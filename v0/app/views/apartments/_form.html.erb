@@ -1,4 +1,4 @@
-<%= form_for([:hunt, @apartment]) do |f| %>
+<%= form_for(apartment_path_helper(@hunt, @apartment)) do |f| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
@@ -43,7 +43,11 @@
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
+
+  <% if @hunt %>
   <%= f.hidden_field :hunt_id, :value => @hunt.id %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
