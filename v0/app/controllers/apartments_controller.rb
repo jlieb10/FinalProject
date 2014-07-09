@@ -17,10 +17,12 @@ class ApartmentsController < ApplicationController
   def new
     @hunt = Hunt.find(params[:hunt_id])
     @apartment = Apartment.new
+    #@cancel_link = hunt_path(@hunt)
   end
 
   # GET /apartments/1/edit
   def edit
+    #@cancel_link = apartment_path(@apartment)
   end
 
   # POST /apartments
