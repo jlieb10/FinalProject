@@ -1,4 +1,4 @@
-<%= form_for([:hunt, :apartment, @detail]) do |f| %>
+<%= form_for([:apartment, @detail]) do |f| %>
   <% if @detail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
@@ -19,10 +19,7 @@
     <%= f.label :procon %><br>
     <%= f.text_field :procon %>
   </div>
-  <div class="field">
-    <%= f.label :apartment_id %><br>
-    <%= f.text_field :apartment_id %>
-  </div>
+    <%= f.hidden_field :apartment_id, :value => @apartment.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
