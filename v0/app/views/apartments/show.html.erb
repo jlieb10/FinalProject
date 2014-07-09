@@ -41,9 +41,9 @@
 <br>
 <% if @apartment.details %>
 <h3>Details:</h3>
-<% @apartment.details.each do |det| %>
-<%= image_tag det.image_url if det.image_url %>
-<%= det.content if det.content %>
+<% @apartment.details.each do |det| %><br>
+<%= image_tag det.image_url(:thumb) if det.image_url %><br>
+<%= det.content if det.content %><br>
 <% end %>
 <% end %>
 
