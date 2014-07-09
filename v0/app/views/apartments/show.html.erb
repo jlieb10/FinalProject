@@ -38,6 +38,14 @@
   <strong>Price:</strong>
   <%= @apartment.price %>
 </p>
+<br>
+<% if @apartment.details %>
+<h3>Details:</h3>
+<% @apartment.details.each do |det| %>
+<%= image_tag det.image_url if det.image_url %>
+<%= det.content if det.content %>
+<% end %>
+<% end %>
 
 
 <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
