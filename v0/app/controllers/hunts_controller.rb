@@ -14,6 +14,7 @@ class HuntsController < ApplicationController
 
   # GET /hunts/new
   def new
+    @user = User.find(params[:user_id])
     @hunt = Hunt.new
   end
 
@@ -25,7 +26,7 @@ class HuntsController < ApplicationController
   # POST /hunts.json
   def create
     @hunt = Hunt.new(hunt_params)
-
+    binding.pry
     respond_to do |format|
       if @hunt.save
         format.html { redirect_to @hunt, notice: 'Hunt was successfully created.' }
@@ -69,6 +70,6 @@ class HuntsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hunt_params
-      params.require(:hunt).permit(:title)
+      params.require(:hunt).permit(:title, :user_id)
     end
 end

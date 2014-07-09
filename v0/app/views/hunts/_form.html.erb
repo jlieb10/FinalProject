@@ -1,4 +1,4 @@
-<%= form_for(@hunt) do |f| %>
+<%= form_for([:user, @hunt]) do |f| %>
   <% if @hunt.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hunt.errors.count, "error") %> prohibited this hunt from being saved:</h2>
@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
