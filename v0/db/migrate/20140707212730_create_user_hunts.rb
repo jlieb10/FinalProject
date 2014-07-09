@@ -1,4 +1,4 @@
-class CreateUsersHunts < ActiveRecord::Migration
+class CreateUserHunts < ActiveRecord::Migration
   def change
     create_table :user_hunts do |t|
       t.integer :user_id
