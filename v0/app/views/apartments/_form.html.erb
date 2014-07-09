@@ -1,4 +1,4 @@
-<%= form_for([:hunt, @apartment]) do |f| %>
+<%= form_for(@apartment) do |f| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>

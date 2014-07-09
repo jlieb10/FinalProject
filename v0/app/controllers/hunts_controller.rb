@@ -14,7 +14,7 @@ class HuntsController < ApplicationController
 
   # GET /hunts/new
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user.id
     @hunt = Hunt.new
   end
 
