@@ -10,14 +10,13 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
-    @apartment = Apartment.find(params[:id]) 
-    @hunt = @apartment.hunt
+     @hunt = Hunt.find(params[:hunt_id])
   end
 
   # GET /hunts/:hunt_id/apartments/new
   def new
     @hunt = Hunt.find(params[:hunt_id])
-    @apartment = Apartment.new
+    @apartment = Apartment.new(hunt_id: @hunt.id)
   end
 
   # GET /apartments/1/edit
