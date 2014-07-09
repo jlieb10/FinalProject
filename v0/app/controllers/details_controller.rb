@@ -14,7 +14,6 @@ class DetailsController < ApplicationController
 
   # GET /details/new
   def new
-    @hunt = Hunt.find(params[:hunt_id])
     @apartment = Apartment.find(params[:apartment_id])
     @detail = Detail.new
   end
@@ -30,7 +29,7 @@ class DetailsController < ApplicationController
 
     respond_to do |format|
       if @detail.save
-        format.html { redirect_to @detail, notice: 'Detail was successfully created.' }
+        format.html { redirect_to @detail.apartment, notice: 'Detail was successfully created.' }
         format.json { render :show, status: :created, location: @detail }
       else
         format.html { render :new }
@@ -44,7 +43,7 @@ class DetailsController < ApplicationController
   def update
     respond_to do |format|
       if @detail.update(detail_params)
-        format.html { redirect_to @detail, notice: 'Detail was successfully updated.' }
+        format.html { redirect_to @detail.apartment, notice: 'Detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @detail }
       else
         format.html { render :edit }
@@ -71,6 +70,6 @@ class DetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detail_params
-      params.require(:detail).permit(:content, :procon, :apartment_id)
+      params.require(:detail).permit(:content, :procon, :apartment_id, :image)
     end
 end

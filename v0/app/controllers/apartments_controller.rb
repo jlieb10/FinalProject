@@ -10,16 +10,19 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+    @hunt = @apartment.hunt
   end
 
-  # GET /apartments/new
+  # GET /hunts/:hunt_id/apartments/new
   def new
     @hunt = Hunt.find(params[:hunt_id])
     @apartment = Apartment.new
+    #@cancel_link = hunt_path(@hunt)
   end
 
   # GET /apartments/1/edit
   def edit
+    #@cancel_link = apartment_path(@apartment)
   end
 
   # POST /apartments
@@ -70,6 +73,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:address, :link, :contact, :price, :hunt_id)
+      params.require(:apartment).permit(:street, :unit, :city, :state, :zip, :link, :contact, :price, :hunt_id)
     end
 end

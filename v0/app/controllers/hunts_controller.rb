@@ -4,8 +4,7 @@ class HuntsController < ApplicationController
   # GET /hunts
   # GET /hunts.json
   def index
-    binding.pry
-    @hunts = Hunt.all
+    @hunts = current_user.hunts
   end
 
   # GET /hunts/1
@@ -26,9 +25,9 @@ class HuntsController < ApplicationController
   # POST /hunts.json
   def create
     @hunt = Hunt.new(hunt_params)
-
     respond_to do |format|
       if @hunt.save
+        @hunt.users << current_user
         format.html { redirect_to @hunt, notice: 'Hunt was successfully created.' }
         format.json { render :show, status: :created, location: @hunt }
       else

@@ -3,7 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Address</th>
+      <th>Street</th>
+      <th>Unit</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
       <th>Link</th>
       <th>Contact</th>
       <th>Price</th>
@@ -15,11 +19,15 @@
   <tbody>
     <% @apartments.each do |apartment| %>
       <tr>
-        <td><%= apartment.address %></td>
+        <td><%= apartment.street %></td>
+        <td><%= apartment.unit %></td>
+        <td><%= apartment.city %></td>
+        <td><%= apartment.state %></td>
+        <td><%= apartment.zip %></td>
         <td><%= apartment.link %></td>
         <td><%= apartment.contact %></td>
         <td><%= apartment.price %></td>
-        <td><%= apartment.hunt %></td>
+        <td><%= apartment.hunt.title %></td>
         <td><%= link_to 'Show', apartment %></td>
         <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
         <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
