@@ -6,6 +6,7 @@ class HuntsController < ApplicationController
   def index
     binding.pry
     @hunts = Hunt.all
+    binding.pry
   end
 
   # GET /hunts/1
