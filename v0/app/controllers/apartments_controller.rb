@@ -16,7 +16,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   def new
     @hunt = Hunt.find(params[:hunt_id])
-    @apartment = Apartment.new
+    @apartment = Apartment.new(hunt_id: @hunt.id)
   end
 
   # GET /apartments/1/edit
