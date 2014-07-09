@@ -10,6 +10,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+    @hunt = @apartment.hunt
   end
 
   # GET /hunts/:hunt_id/apartments/new
