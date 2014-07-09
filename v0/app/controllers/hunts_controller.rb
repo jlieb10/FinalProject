@@ -5,7 +5,6 @@ class HuntsController < ApplicationController
   # GET /hunts.json
   def index
     @hunts = Hunt.all
-    binding.pry
   end
 
   # GET /hunts/1
