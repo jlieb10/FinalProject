@@ -10,7 +10,6 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
-     @hunt = Hunt.find(params[:hunt_id])
   end
 
   # GET /apartments/new
