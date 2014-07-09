@@ -17,8 +17,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :procon %><br>
-    <%= f.text_field :procon %>
+    <%= f.label :procon, "Pro" %>
+    <%= f.radio_button :procon, "pro" %><br>
+    <%= f.label :procon, "Con" %>
+    <%= f.radio_button :procon, "con" %>
   </div>
 
   <div class="field">
