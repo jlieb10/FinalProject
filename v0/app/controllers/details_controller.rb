@@ -70,6 +70,6 @@ class DetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detail_params
-      params.require(:detail).permit(:content, :procon, :apartment_id, :image)
+      params.require(:detail).permit(:content, :procon, :apartment_id, :image, :remote_image_url)
     end
 end

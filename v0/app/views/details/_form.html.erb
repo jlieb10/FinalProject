@@ -26,6 +26,11 @@
     <%= f.file_field :image %>
   </div>
 
+  <div class="field">
+    <%= f.label :remote_image_url, "or image URL" %><br>
+    <%= f.text_field :remote_image_url %>
+  </div>
+
   <%= f.hidden_field :apartment_id, :value => @apartment.id %>
 
   <div class="actions">
