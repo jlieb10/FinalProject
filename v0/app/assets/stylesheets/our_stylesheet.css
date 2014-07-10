@@ -1,6 +1,15 @@
 .navbar-custom {
 	border-radius: 0;
+	background-color: #F95B43;
+	color: #F0E8E3;
+	border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
 }
+
+/*nav {
+	color: #B7BE6B;
+}*/
 
 .logged_in {
 	padding-top: 15px;
