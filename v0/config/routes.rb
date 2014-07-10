@@ -18,7 +18,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'hunts#index'
+  # if :authenticate_user! || current_user != nil
+  #   if current_user.hunts != nil
+  #     root "hunts#show", :params => {:id = current_user.hunts.last.id}
+  #   else
+  #     root "hunts#new"
+  #   end
+  # end
+  root "hunts#index"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
