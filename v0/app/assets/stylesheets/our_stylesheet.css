@@ -1,0 +1,10 @@
+.navbar-custom {
+	border-radius: 0;
+}
+
+.logged_in {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
