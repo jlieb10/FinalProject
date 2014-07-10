@@ -14,6 +14,7 @@ class HuntsController < ApplicationController
 
   # GET /hunts/new
   def new
+    @user = current_user.id
     @hunt = Hunt.new
   end
 
@@ -69,6 +70,6 @@ class HuntsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hunt_params
-      params.require(:hunt).permit(:title)
+      params.require(:hunt).permit(:title, :user_id)
     end
 end
