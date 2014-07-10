@@ -3,24 +3,27 @@
 	border-radius: 0;
 	background-color: #F95B43;
 	border-top-width: 0px;
-        border-left-width: 0px;
-        border-right-width: 0px;
-        border-bottom: 2px solid #F95B43;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom: 2px solid #F95B43;
 }
 
-.navbar-custom a{
-        color: #FFF;
+/*.navbar-custom a{
+  color: #FFF;
+}
+
+.dropdown-menu a{
+	color: #000;
 }
 
 .navbar-custom a:visited {
-        color: #FFF;
+  color: #FFF;
 }
 
 .navbar-custom a:hover {
-        border-bottom: 2px solid #F4C6C1;
-        background-color: #F95B43;
-   
-}
+  border-bottom: 2px solid #F4C6C1;
+  background-color: #F95B43;
+}*/
 
 .logged_in {
 	padding-top: 15px;
