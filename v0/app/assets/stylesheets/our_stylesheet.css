@@ -3,27 +3,53 @@
 	border-radius: 0;
 	background-color: #F95B43;
 	border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-bottom: 2px solid #F95B43;
+        border-left-width: 0px;
+        border-right-width: 0px;
+/*    border-bottom: 2px solid #F95B43;
+*/}
+
+.navbar-brand {
+        float: left;
+        padding: 15px;
+        margin-left: 25px;
+        font-size: 34px;
+        line-height: 20px;
+        height: 50px;
 }
 
-/*.navbar-custom a{
-  color: #FFF;
-}
+.navbar-custom li{
+        color: #FFF;
+        border-left-width: 0px;
+        border-right-width: 0px;
+/*        border-bottom: 2px solid #F95B43;
+*/}
 
-.dropdown-menu a{
-	color: #000;
+.navbar-custom a{
+        color: #FFF;
 }
 
 .navbar-custom a:visited {
-  color: #FFF;
+        color: #FFF;
 }
 
-.navbar-custom a:hover {
-  border-bottom: 2px solid #F4C6C1;
+.nav>li>a:hover {
+        border-bottom: 2px inline #F4C6C1;
+        background-color: #F95B43;  
+}
+
+.dropdown-menu li a{
+        color: #000;
+}
+
+.dropdown-menu li a:visited{
+        color: #000;
+}
+
+/*.navbar-custom a:hover {
+  border-bottom: 2px inline #F4C6C1;
   background-color: #F95B43;
 }*/
+
 
 .logged_in {
 	padding-top: 15px;
