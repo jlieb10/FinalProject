@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :apartments, through: :hunts
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
-  devise :invitable, :confirmable, :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email
