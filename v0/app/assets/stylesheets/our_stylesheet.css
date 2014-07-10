@@ -1,15 +1,26 @@
+/*Navigation Styles*/
 .navbar-custom {
 	border-radius: 0;
 	background-color: #F95B43;
-	color: #F0E8E3;
 	border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom: 2px solid #F95B43;
 }
 
-/*nav {
-	color: #B7BE6B;
-}*/
+.navbar-custom a{
+        color: #FFF;
+}
+
+.navbar-custom a:visited {
+        color: #FFF;
+}
+
+.navbar-custom a:hover {
+        border-bottom: 2px solid #F4C6C1;
+        background-color: #F95B43;
+   
+}
 
 .logged_in {
 	padding-top: 15px;
