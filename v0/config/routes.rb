@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show', :path => "profile"
+
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   resources :hunts do
     resources :apartments, shallow: :true do
