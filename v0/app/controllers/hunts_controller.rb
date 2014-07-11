@@ -10,6 +10,8 @@ class HuntsController < ApplicationController
   # GET /hunts/1
   # GET /hunts/1.json
   def show
+    @invited_user = User.new
+    @invited_user.hunts << current_user.hunts.last
   end
 
   # GET /hunts/new
