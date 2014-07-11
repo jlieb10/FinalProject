@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show', :path => "profile"
+  devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout' }, :controllers => { :registrations => "my_devise/registrations"}
 
-  devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   resources :hunts do
     resources :apartments, shallow: :true do
       resources :details, shallow: :true
@@ -10,9 +10,6 @@ Rails.application.routes.draw do
 
   # resources :details
   # resources :apartments
-
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
