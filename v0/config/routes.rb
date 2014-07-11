@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/show', :path => "profile"
 
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  #devise_for :users, controllers: { sessions: "users/custom_sessions", :as => "" }
   resources :hunts do
     resources :apartments, shallow: :true do
       resources :details, shallow: :true
