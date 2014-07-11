@@ -27,7 +27,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to 'Abodely', hunt_path(current_user.hunts.last.id), :class => 'navbar-brand' %>
+        <%= link_to 'Abodely', "#", :class => 'navbar-brand' %>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,7 +42,7 @@
                 <li><%= link_to 'View Profile', users_show_path %></li>
                 <li><%= link_to 'All Searches', hunts_path %></li>
               </ul>
-            </li>   
+            </li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
