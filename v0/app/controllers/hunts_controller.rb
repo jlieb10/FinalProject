@@ -4,7 +4,7 @@ class HuntsController < ApplicationController
   # GET /hunts
   # GET /hunts.json
   def index
-    @hunts = current_user.hunts
+    @hunts = current_user.hunts.reverse
   end
 
   # GET /hunts/1
