@@ -4,11 +4,25 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+  <div class="hidden">
+    <%= @inviter = User.find(resource.invited_by_id) %>
+    <%= resource.hunts << @inviter.hunts.last %>
+  </div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+<div class="field">
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %>
+</div>
 
   <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
 <% end %>
