@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email
+
+  def latest_hunt
+    self.hunts.last
+  end
 end

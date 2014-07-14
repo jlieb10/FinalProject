@@ -20,16 +20,5 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
-
-  # def resource
-
-  #     if @user.hunts.last == nil
-  #       new_hunt_path
-  #     else
-  #       hunt_path(@user.hunts.last.id)
-  #     end
-  # end
-
-
 end
 

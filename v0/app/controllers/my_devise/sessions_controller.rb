@@ -4,10 +4,10 @@ class MyDevise::SessionsController < Devise::SessionsController
       set_flash_message(:notice, :signed_in) if is_flashing_format?
       sign_in(resource_name, resource)
       yield resource if block_given?
-      if resource.hunts.last == nil
-        redirect_to new_hunt_path
+      if resource.latest_hunt
+        redirect_to resource.latest_hunt
       else
-        redirect_to hunt_path(resource.hunts.last.id)
+        redirect_to new_hunt_path
       end
     end
 

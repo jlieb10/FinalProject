@@ -6,7 +6,7 @@
 
   <div class="hidden">
     <%= @inviter = User.find(resource.invited_by_id) %>
-    <%= resource.hunts << @inviter.hunts.last %>
+    <%= resource.hunts << @inviter.latest_hunt %>
   </div>
 
   <div class="field">
