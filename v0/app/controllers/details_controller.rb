@@ -57,7 +57,7 @@ class DetailsController < ApplicationController
   def destroy
     @detail.destroy
     respond_to do |format|
-      format.html { redirect_to details_url, notice: 'Detail was successfully destroyed.' }
+      format.html { redirect_to apartment_path(@apartment), notice: 'Detail was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,6 +66,7 @@ class DetailsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_detail
       @detail = Detail.find(params[:id])
+      # @apartment = @detail.apartment
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -22,7 +22,6 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1/edit
   def edit
-    #@cancel_link = apartment_path(@apartment)
   end
 
   # POST /apartments
@@ -60,7 +59,7 @@ class ApartmentsController < ApplicationController
   def destroy
     @apartment.destroy
     respond_to do |format|
-      format.html { redirect_to apartments_url, notice: 'Apartment was successfully destroyed.' }
+      format.html { redirect_to hunt_apartments_path(@hunt), notice: 'Apartment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +68,7 @@ class ApartmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_apartment
       @apartment = Apartment.find(params[:id])
+      @hunt = @apartment.hunt
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

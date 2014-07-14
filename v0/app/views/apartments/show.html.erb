@@ -41,20 +41,22 @@
 <br>
 <% if @apartment.details %>
 <h3>Details:</h3>
-<% @apartment.details.each do |det| %><br>
-<%= image_tag det.image_url(:thumb) if det.image_url %><br>
-<%= det.content if det.content %><br>
-<%= form_for(det) do |f| %>
-<div class="field">
+  <% @apartment.details.each do |det| %><br>
+  <%= image_tag det.image_url(:thumb) if det.image_url %><br>
+  <%= det.content if det.content %><br>
+  <%= form_for(det) do |f| %>
+  <div class="field">
     <%= f.label :procon, "Pro" %>
     <%= f.radio_button :procon, "pro", :class => "pro"%><br>
     <%= f.label :procon, "Con" %>
     <%= f.radio_button :procon, "con", :class => "con" %>
   </div>
+  <%= link_to 'Edit', edit_detail_path(det) %>
   <% end %>
 <% end %>
 <% end %>
 
-<%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', hunt_apartments_path(@hunt.id) %>
+<div>
+  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
+  <%= link_to 'Back', hunt_apartments_path(@hunt.id) %>
+</div>

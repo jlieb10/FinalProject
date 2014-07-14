@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @detail %> |
-<%= link_to 'Back', details_path %>
+<%= link_to 'Back', apartment_path(@detail.apartment.id) %>
