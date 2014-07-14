@@ -14,3 +14,36 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function() {
+  $(function () {
+    $('.one').click(function () {
+      $.ajax({
+        type: "Put",
+        url: "/details/:id",
+        data: {
+          procon: "con",
+        }
+      })
+      .done(function () {
+        alert("Data Saved");
+      });
+    });
+  });
+});
+
+$(document).ready(function() {
+  $(function () {
+    $('.two').click(function () {
+      $.ajax({
+        type: "Put",
+        url: "/details/:id",
+        data: {
+          procon: "pro",
+        }
+      })
+      .done(function () {
+        alert("Data Saved");
+      });
+    });
+  });
+});
