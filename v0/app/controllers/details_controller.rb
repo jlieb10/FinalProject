@@ -41,16 +41,16 @@ class DetailsController < ApplicationController
   # PATCH/PUT /details/1
   # PATCH/PUT /details/1.json
   def update
-    @detail.update(detail_params)
-    # respond_to do |format|
-    #   if @detail.update(detail_params)
-    #     format.html { redirect_to @detail.apartment, notice: 'Detail was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @detail }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @detail.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    #binding.pry
+    respond_to do |format|
+      if @detail.update(detail_params)
+        format.html { redirect_to @detail.apartment, notice: 'Detail was successfully updated.' }
+        format.json { render :show, status: :ok, location: @detail }
+      else
+        format.html { render :edit }
+        format.json { render json: @detail.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /details/1

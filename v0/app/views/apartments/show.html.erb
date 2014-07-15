@@ -46,7 +46,7 @@
   <% @apartment.details.each do |det| %><br>
   <%= image_tag det.image_url(:thumb) if det.image_url %><br>
   <%= det.content if det.content %><br>
-  <%= form_for(det, :remote => true, :authenticity_token => true) do |f| %>
+  <%= form_for(det) do |f| %>
   <div class="field">
     <%= f.label :procon, "Pro" %>
     <%= f.radio_button :procon, "pro", :class => "pro" %><br>
