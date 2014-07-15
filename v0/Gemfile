@@ -26,6 +26,8 @@ group :development, :test do
   gem "binding_of_caller"
   gem "letter_opener"
   gem "email_spec"
+  gem "faker"
+  gem "factory_girl"
 end
 
 # Use unicorn as the app server

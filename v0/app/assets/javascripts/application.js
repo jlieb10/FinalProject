@@ -15,9 +15,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('input.con, input.pro').change(function () {
-    this.form.submit(function (e) {
-      e.preventDefault();
-    });
+  $('input.con, input.pro').change(function() {
+    this.form.submit();
   });
 });
