@@ -14,8 +14,30 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(document).ready(function() {
-  $('input.con, input.pro').change(function() {
-    this.form.submit();
+// $(document).ready(function() {
+//   $('input.con, input.pro').change(function() {
+//     this.form.submit();
+//   });
+// });
+
+
+$(document).ready(function(){
+  $('input.con, input.pro').on('change', function(){
+    var form = this.form;
+    form.submit(function(e){
+      $.ajax({
+        type: "Put",
+        url: form.attr('action'),
+        data: form.serialize()
+      })
+      .done(function () {
+        alert("Data Saved");
+      });
+      e.preventDefault();
+    });
   });
 });
+
+    // this.form.submit(function(){
+      //var form = this.form
+          // });
