@@ -1,4 +1,4 @@
-
+<!---------- BASIC APARTMENT INFORMATION ---------->
 <p>
   <strong>Street:</strong>
   <%= @apartment.street %>
@@ -39,6 +39,8 @@
   <%= @apartment.price %>
 </p>
 <br>
+
+<!---------- DETAILS ---------->
 <% if @apartment.details %>
 <h3>Details:</h3>
   <% @apartment.details.each do |det| %><br>
@@ -50,12 +52,37 @@
     <%= f.radio_button :procon, "pro", :class => "pro" %><br>
     <%= f.label :procon, "Con" %>
     <%= f.radio_button :procon, "con", :class => "con" %>
+    <br><%= link_to 'Edit', edit_detail_path(det) %>
   </div>
-  <%= link_to 'Edit', edit_detail_path(det) %>
   <% end %>
 <% end %>
 <% end %>
 
+<!---------- PRO/CON LIST ---------->
+
+<div>
+  PROS
+</div>
+<ul>
+<% @apartment.details.each do |det| %>
+  <% if det.procon == "pro" %>
+    <li><%= det.content if det.content %></li>
+  <% end %>
+<% end %>
+</ul>
+
+<div>
+  CONS
+</div>
+<ul>
+<% @apartment.details.each do |det| %>
+  <% if det.procon == "con" %>
+    <li><%= det.content if det.content %></li>
+  <% end %>
+<% end %>
+</ul>
+
+<!---------- LINKS ---------->
 <div>
   <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
   <%= link_to 'Back', hunt_apartments_path(@hunt.id) %>
