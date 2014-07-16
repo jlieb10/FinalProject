@@ -9,8 +9,6 @@ class CreateApartments < ActiveRecord::Migration
       t.string  :link
       t.string  :contact
       t.integer :price
-      t.string  :move_in_date
-      t.string  :status
       t.belongs_to :hunt, index: true
       t.timestamps
     end
