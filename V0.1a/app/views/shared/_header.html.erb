@@ -1,0 +1,68 @@
+<header class="clearfix ng-scope">
+     <a href="#/" data-toggle-min-nav="" class="toggle-min"><i class="fa fa-bars"></i></a>
+
+     <!-- Logo -->
+     <div class="logo">
+          <% if current_user.nil? %>
+            <%= link_to "Abodely", new_user_session_path %>
+          <% elsif current_user.hunts.count == 0 %>
+            <%= link_to "Abodely", new_hunt_path %>
+          <% elsif current_user.hunts.count > 0 %>
+            <%= link_to "Abodely", hunt_path(current_user.hunts.last.id) %>
+          <% end %>
+     </div>
+
+     <!-- needs to be put after logo to make it working-->
+     <div class="menu-button" toggle-off-canvas="">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+     </div>
+
+     <div class="top-nav">
+         <ul class="nav-right pull-right list-unstyled">
+           <!--   <li class="dropdown langs text-normal ng-scope" data-ng-controller="LangCtrl">
+                 <a href="javascript:;" class="dropdown-toggle ng-binding" data-toggle="dropdown">
+                     English
+                 </a> -->
+ <!--             <li class="dropdown">
+                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                     <span class="fa fa-magic nav-icon"></span>
+                 </a>
+                 <ul class="dropdown-menu pull-right color-switch" data-ui-color-switch>
+                     <li><a href="javascript:;" class="color-option color-some_color" data-style="some_color"></a></li>
+                 </ul>
+             </li> -->
+             <li class="dropdown text-normal nav-profile">
+                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                     <img src="images/g1.jpg" alt="" class="img-circle img30_30">
+                     <span class="hidden-xs">
+                         <span data-i18n="<%= current_user.name %>"><%= current_user.name %></span>
+                     </span>
+                 </a>
+                 <ul class="dropdown-menu with-arrow pull-right">
+                     <li>
+                           <%= link_to users_show_path do %>
+                             <i class="fa fa-user"></i>
+                             <span data-i18n="My Profile">My Profile</span>
+                             <% end %>
+                     </li>
+                     <li class="dropdown">
+                         <%= link_to hunts_path do %>
+                             <i class="fa fa-check"></i> 
+                             <span data-i18n="All Hunts">All Hunts</span>
+                             <% end %>
+                     </li>
+                
+                     <li>
+                         <%= link_to destroy_user_session_path, method: :delete do%>
+                             <i class="fa fa-sign-out"></i>
+                             <span data-i18n="Log Out">Log Out</span>
+                         <%  end %>
+                     </li>
+                 </ul>
+             </li>
+         </ul>        
+     </div>
+ </header>
+
