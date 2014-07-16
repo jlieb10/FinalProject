@@ -1,18 +1,24 @@
-<h1>All Hunts</h1>
+<div class="page ng-scope">
 
-<table>
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> All Hunts</strong></div>
+        <div class="panel-body ng-scope" data-ng-controller="RatingDemoCtrl">
 
-  <tbody>
-    <% @hunts.each do |hunt| %>
-      <tr>
-        <td><%= link_to "#{hunt.title}", hunt %></td>    
-        <td><%= link_to 'Edit', edit_hunt_path(hunt) %></td>
-        <td><%= link_to 'Destroy', hunt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <table>
 
-<br>
+        <tbody>
+          <% @hunts.each do |hunt| %>
+            <tr>
+              <td><%= link_to "#{hunt.title}", hunt %></td>    
+              <td><%= link_to 'Edit', edit_hunt_path(hunt) %></td>
+              <td><%= link_to 'Destroy', hunt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<%= link_to 'New Hunt', new_hunt_path %>
+      <br>
+      <%= link_to 'New Hunt', new_hunt_path %>
+      </div>
+    </section> 
+</div>

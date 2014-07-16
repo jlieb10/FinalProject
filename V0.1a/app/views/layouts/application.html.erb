@@ -27,12 +27,19 @@
           <%= render "shared/sidebar" %>
       </aside>
     </div>
-   <% end %>
 
     <div class="view-container">
       <section id="content" class="animate-fade-up page">
         <%= yield %>
       </section>
     </div>
+    <% else %>
+    
+    <div class="view-container">
+        <%= yield %>
+    </div>
+    
+     <% end %>
+
   </body>
 </html>
