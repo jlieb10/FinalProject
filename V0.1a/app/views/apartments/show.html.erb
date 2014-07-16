@@ -63,10 +63,10 @@
 <div>
   PROS
 </div>
-<ul>
+<ul class="pro">
 <% @apartment.details.each do |det| %>
   <% if det.procon == "pro" %>
-    <li><%= det.content if det.content %></li>
+    <li data-id=<%= det.id %>><%= det.content if det.content %></li>
   <% end %>
 <% end %>
 </ul>
@@ -74,10 +74,10 @@
 <div>
   CONS
 </div>
-<ul>
+<ul class="con">
 <% @apartment.details.each do |det| %>
   <% if det.procon == "con" %>
-    <li><%= det.content if det.content %></li>
+    <li data-id=<%= det.id %>><%= det.content if det.content %></li>
   <% end %>
 <% end %>
 </ul>
