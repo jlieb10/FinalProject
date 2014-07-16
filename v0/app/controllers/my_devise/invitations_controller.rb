@@ -27,6 +27,7 @@ class MyDevise::InvitationsController < Devise::InvitationsController
 
   # GET /resource/invitation/accept?invitation_token=abcdef
   def edit
+    resource.hunts <<
     resource.invitation_token = params[:invitation_token]
     render :edit
   end

@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Content:</strong>
+  <%= @detail.content %>
+</p>
+
+<p>
+  <strong>Procon:</strong>
+  <%= @detail.procon %>
+</p>
+
+<p>
+  <strong>Apartment:</strong>
+  <%= @detail.apartment %>
+</p>
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', detail_path %>

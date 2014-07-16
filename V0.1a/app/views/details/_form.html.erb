@@ -1,0 +1,36 @@
+  <%= form_for(detail_path_helper(@apartment, @detail)) do |f| %>
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remote_image_url, "or image URL" %><br>
+    <%= f.text_field :remote_image_url %>
+  </div>
+
+  <% if @apartment %>
+    <%= f.hidden_field :apartment_id, :value => @apartment.id %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

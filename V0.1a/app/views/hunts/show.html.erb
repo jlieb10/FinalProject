@@ -1,0 +1,14 @@
+<h1><%= @hunt.title %></h1>
+
+<h3>apartments:</h3>
+<ul>
+   <% @hunt.apartments.each do |apartment| %>
+  <li><%= link_to apartment.street, apartment_path(apartment) %></li>
+  <% end %>
+</ul>
+
+<%= render '/users/invitations/form' %>
+
+<%= link_to 'Add New Apartment', new_hunt_apartment_path(@hunt) %> |
+<%= link_to 'Edit', edit_hunt_path(@hunt) %> |
+<%= link_to 'Back', hunts_path %>
