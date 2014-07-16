@@ -43,3 +43,24 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $('input.status').change(function(){
+    var form = $(this.form);
+
+    var data = {
+      authenticity_token: form.find("input[name='authenticity_token']").val(),
+      detail: {status: $(this).val()}
+    };
+
+    $.ajax({
+      type: 'Put',
+      url: form.attr('action'),
+      data: data,
+      dataType: 'json'
+    })
+
+
+
+
+

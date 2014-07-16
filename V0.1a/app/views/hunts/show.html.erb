@@ -5,6 +5,10 @@
    <% @hunt.apartments.each do |apartment| %>
   <li><%= link_to apartment.street, apartment_path(apartment) %></li>
   <% end %>
+
+  <div class="status">
+    <%= select :apartment, :status, ["Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"] %>
+  </div>
 </ul>
 
 <%= render '/users/invitations/form' %>
