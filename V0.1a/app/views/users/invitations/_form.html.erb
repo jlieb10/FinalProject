@@ -1,0 +1,13 @@
+<h4> Invite Hunt Collaborators </h4>
+
+<%= form_for @invited_user, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+<% end %>
+
+

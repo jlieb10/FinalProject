@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  procon: MyString
+  apartment_id: 
+
+two:
+  content: MyText
+  procon: MyString
+  apartment_id: 
