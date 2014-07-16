@@ -3,13 +3,9 @@
 
      <!-- Logo -->
      <div class="logo">
-          <% if current_user.nil? %>
-            <%= link_to "Abodely", new_user_session_path %>
-          <% elsif current_user.hunts.count == 0 %>
-            <%= link_to "Abodely", new_hunt_path %>
-          <% elsif current_user.hunts.count > 0 %>
-            <%= link_to "Abodely", hunt_path(current_user.hunts.last.id) %>
-          <% end %>
+        <%= link_to "#" do %>
+        <i class="fa fa-home"></i>Abodely
+        <% end %>
      </div>
 
      <!-- needs to be put after logo to make it working-->
@@ -49,11 +45,11 @@
                      </li>
                      <li class="dropdown">
                          <%= link_to hunts_path do %>
-                             <i class="fa fa-check"></i> 
+                             <i class="fa fa-check"></i>
                              <span data-i18n="All Hunts">All Hunts</span>
                              <% end %>
                      </li>
-                
+
                      <li>
                          <%= link_to destroy_user_session_path, method: :delete do%>
                              <i class="fa fa-sign-out"></i>
@@ -62,7 +58,7 @@
                      </li>
                  </ul>
              </li>
-         </ul>        
+         </ul>
      </div>
  </header>
 
