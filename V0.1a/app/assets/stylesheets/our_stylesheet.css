@@ -6,9 +6,10 @@
         border-left-width: 0px;
         border-right-width: 0px;*/
 /*    border-bottom: 2px solid #F95B43;
-*//*}
+    }
+}*/
 
-.navbar-brand {
+/*.navbar-brand {
         float: left;
         padding: 15px;
         margin-left: 25px;
@@ -20,9 +21,15 @@
 .navbar-custom li{
         color: #FFF;
         border-left-width: 0px;
+<<<<<<< HEAD
         border-right-width: 0px;*/
 /*        border-bottom: 2px solid #F95B43;
 *//*}
+=======
+        border-right-width: 0px;
+        border-bottom: 2px solid #F95B43;
+}
+>>>>>>> master
 
 .navbar-custom a{
         color: #FFF;
@@ -34,7 +41,7 @@
 
 .nav>li>a:hover {
         border-bottom: 2px inline #F4C6C1;
-        background-color: #F95B43;  
+        background-color: #F95B43;
 }
 
 .dropdown-menu li a{
@@ -52,6 +59,9 @@
 
 /*
 .logged_in {
+=======
+
+/*.logged_in {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-right: 10px;
@@ -60,4 +70,4 @@
 
 td {
 	padding-right: 15px;
-}*/
+/*

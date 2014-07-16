@@ -43,6 +43,13 @@
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
+  <div class="field">
+    <%= f.label :move_in_date %><br>
+    <%= f.text_field :move_in_date %>
+  </div>
+  <div class="field">
+    <%= f.select :status, ["Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"] %>
+  </div>
 
   <% if @hunt %>
   <%= f.hidden_field :hunt_id, :value => @hunt.id %>

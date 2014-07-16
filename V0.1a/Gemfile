@@ -30,9 +30,6 @@ group :development, :test do
   gem "factory_girl"
 end
 
-group :assets do
-  gem "angularjs-rails"
-end
 # Use unicorn as the app server
 # gem 'unicorn'
 

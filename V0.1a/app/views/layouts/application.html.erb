@@ -12,7 +12,8 @@
     <!--[if lt IE 9]>
                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
            <![endif]-->
-       <% if user_signed_in? %> 
+  
+   <% if user_signed_in? %> 
      <div data-ng-controller="AppCtrl">   
          <section  id="header" class="top-header">
             <%= render "shared/header" %>
@@ -33,6 +34,5 @@
         <%= yield %>
       </section>
     </div>
-
   </body>
 </html>
