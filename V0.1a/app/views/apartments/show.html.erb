@@ -1,8 +1,10 @@
 <!---------- BASIC APARTMENT INFORMATION ---------->
-<p>
-  <strong>Street:</strong>
-  <%= @apartment.street %>
-</p>
+<div class="page ng-scope">
+
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %></strong></div>
+        <div class="panel-body ng-scope" data-ng-controller="RatingDemoCtrl">
+
 
 <p>
   <strong>Unit:</strong>
@@ -105,4 +107,7 @@
 <div>
   <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
   <%= link_to 'Back', hunt_apartments_path(@hunt.id) %>
+</div>
+   </div>
+    </section> 
 </div>

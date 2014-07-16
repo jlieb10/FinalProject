@@ -1,18 +1,49 @@
-<h2>Sign in</h2>
-<div class="col-md-6">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|  %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, :class=>"form-control" %></div>
+<div class="page-signin">
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", :class=>"form-control" %></div>
+    <div class="signin-header">
+        <div class="container text-center">
+            <section class="logo">
+                <a href="#"><span class="fa fa-home">Abodely</span></a>
+            </section>
+        </div>
+    </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end %>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-<%= render "devise/shared/links" %>
-</div>
+    <div class="signin-body">
+        <div class="container">
+            <div class="form-container">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name), :class=>"form-horizontal ng-pristine ng-valid") do |f|  %>
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                  <%= f.email_field :email, autofocus: true, :class=>"form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <%= f.password_field :password, autocomplete: "off", :class=>"form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.submit "Log in",  :class=>"btn btn-primary btn-lg btn-block" %>
+                        </div>
+                        <div class="form-group">
+                          <% if devise_mapping.rememberable? -%>
+                            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                          <% end %>
+                        </div>
+                    </fieldset>
+                <% end %>
+                <section>
+                  <%= render "devise/shared/links" %>
+                </section>           
+            </div>  <!-- form-container -->
+        </div>  <!-- container -->
+    </div>   <!-- signin-body -->
+</div> <!-- page-signin ng-scope -->
 
