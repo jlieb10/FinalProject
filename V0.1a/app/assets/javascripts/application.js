@@ -30,7 +30,16 @@ $(document).ready(function(){
       type: 'Put',
       url: form.attr('action'),
       data: data,
-      dataType: 'json',
+      dataType: 'json'
+    }).success(function(data){
+      $('li[data-id="' + data.id + '"]').remove();
+      var listItem = "<li data-id='"+ data.id + "'>" + data.content + "</li>"
+      if (data.procon === "pro") {
+        $("ul.pro").append(listItem);
+      }
+      else {
+        $("ul.con").append(listItem);
+      }
     });
   });
 });
