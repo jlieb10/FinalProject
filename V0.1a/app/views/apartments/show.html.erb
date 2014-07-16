@@ -1,8 +1,10 @@
 <!---------- BASIC APARTMENT INFORMATION ---------->
-<p>
-  <strong>Street:</strong>
-  <%= @apartment.street %>
-</p>
+<div class="page ng-scope">
+
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %></strong></div>
+        <div class="panel-body ng-scope" data-ng-controller="RatingDemoCtrl">
+
 
 <p>
   <strong>Unit:</strong>
@@ -55,20 +57,39 @@
 
 <!---------- DETAILS ---------->
 <% if @apartment.details %>
-<h3>Details:</h3>
-  <% @apartment.details.each do |det| %><br>
-  <%= image_tag det.image_url(:thumb) if det.image_url %><br>
-  <%= det.content if det.content %><br>
-  <%= form_for(det) do |f| %>
-  <div class="field">
-    <%= f.label :procon, "Pro" %>
-    <%= f.radio_button :procon, "pro", :class => "pro" %><br>
-    <%= f.label :procon, "Con" %>
-    <%= f.radio_button :procon, "con", :class => "con" %>
-    <br><%= link_to 'Edit', edit_detail_path(det) %>
+<div class="panel panel-default">
+  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Content</th>
+        <th>Pro/Con</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @apartment.details.each do |deet| %>
+      <tr>
+        <td><%= image_tag deet.image_url(:thumb) if deet.image_url %></td>
+        <td><%= deet.content if deet.content %><br></td>
+        <td>
+          <%= form_for(deet) do |f| %>
+          <div class="field">
+            <%= f.label :procon, "Pro" %>
+            <%= f.radio_button :procon, "pro", :class => "pro" %><br>
+            <%= f.label :procon, "Con" %>
+            <%= f.radio_button :procon, "con", :class => "con" %>
+          </div>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_detail_path(deet) %></table>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <% end %>
-<% end %>
+
 <% end %>
 
 <!---------- PRO/CON LIST ---------->
@@ -99,4 +120,7 @@
 <div>
   <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
   <%= link_to 'Back', hunt_apartments_path(@hunt.id) %>
+</div>
+   </div>
+    </section> 
 </div>

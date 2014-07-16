@@ -1,4 +1,4 @@
-<h1><%= @hunt.title %></h1>
+<h2><%= @hunt.title %></h2>
 
 <h3>apartments:</h3>
 <ul>
@@ -12,8 +12,35 @@
 
 </ul>
 
+<div class="panel panel-default">
+  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span data-i18n="Apartments">Apartments:</span></strong></div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>View</th>
+        <th>Street</th>
+        <th>Unit</th>
+        <th>Contact</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hunt.apartments.each do |apt| %>
+      <tr>
+        <td><%= link_to apartment_path(apt) do %>
+          <i class="fa fa-home fa-2x"></i>
+        <% end %></td>
+        <td><%= apt.street %></td>
+        <td><%= apt.unit %></td>
+        <td><%= apt.contact %></td>
+        <td><%= apt.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= button_to 'Add New Apartment', new_hunt_apartment_path(@hunt) %>
+
 <%= render '/users/invitations/form' %>
 
-<%= link_to 'Add New Apartment', new_hunt_apartment_path(@hunt) %> |
-<%= link_to 'Edit', edit_hunt_path(@hunt) %> |
-<%= link_to 'Back', hunts_path %>
+<%= link_to 'Edit Hunt', edit_hunt_path(@hunt) %>

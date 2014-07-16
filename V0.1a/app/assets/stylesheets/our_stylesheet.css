@@ -6,6 +6,7 @@
         border-left-width: 0px;
         border-right-width: 0px;*/
 /*    border-bottom: 2px solid #F95B43;
+    }
 }*/
 
 /*.navbar-brand {
@@ -20,9 +21,15 @@
 .navbar-custom li{
         color: #FFF;
         border-left-width: 0px;
+<<<<<<< HEAD
+        border-right-width: 0px;*/
+/*        border-bottom: 2px solid #F95B43;
+*//*}
+=======
         border-right-width: 0px;
         border-bottom: 2px solid #F95B43;
 }
+>>>>>>> master
 
 .navbar-custom a{
         color: #FFF;
@@ -48,8 +55,11 @@
 /*.navbar-custom a:hover {
   border-bottom: 2px inline #F4C6C1;
   background-color: #F95B43;
-}*/
+}
 
+/*
+.logged_in {
+=======
 
 /*.logged_in {
 	padding-top: 15px;
@@ -60,4 +70,4 @@
 
 td {
 	padding-right: 15px;
-}**/
+/*
