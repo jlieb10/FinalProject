@@ -8311,7 +8311,7 @@ img.img80_80 {
 }
 
 .flags-sprite, .flags-american, .flags-china, .flags-france, .flags-german, .flags-italy, .flags-japan, .flags-korea, .flags-portugal, .flags-russia, .flags-spain {
-  background: url('ui/images/flags-s360b763ee1.png') no-repeat;
+  background: image-url('flags-s360b763ee1.png') no-repeat;
 }
 
 .flags-american {
@@ -10180,7 +10180,7 @@ button.toast-close-button {
 }
 
 .body-lock #content {
-  background: url("../images/background/1.jpg") no-repeat center center fixed;
+  background: image-url("1.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
