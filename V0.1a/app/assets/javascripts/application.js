@@ -12,26 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery/dist/jquery
-//= require angular/angular
-//= require angular-route/angular-route
-//= require angular-animate/angular-animate
-//= require underscore/underscore-min
-//= require angular-bootstrap/ui-bootstrap-tpls
-//= require jquery-spinner/dist/jquery.spinner
-//= require seiyria-bootstrap-slider/js/bootstrap-slider
-//= require jquery-steps/build/jquery.steps
-//= require toastr/toastr
-//= require bootstrap-file-input/bootstrap.file-input
-//= require jquery.slimscroll/jquery.slimscroll
-//= require holderjs/holder
-//= require raphael/raphael
-//= require morris.js/morris
-//= require flot/jquery.flot
-//= require flot.tooltip/js/jquery.flot.tooltip
-//= require gauge.js/dist/gauge
-//= require jquery.easy-pie-chart/dist/jquery.easypiechart
-//= require angular-wizard/dist/angular-wizard
 //= require_tree .
 
 $(document).ready(function(){
