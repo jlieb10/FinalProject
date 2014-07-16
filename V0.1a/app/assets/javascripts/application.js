@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require vendor.js
+//= require ui.js
+//= require app.js
 //= require_tree .
 
 $(document).ready(function(){
