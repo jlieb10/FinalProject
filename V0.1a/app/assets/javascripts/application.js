@@ -54,7 +54,9 @@ $(document).ready(function(){
       },
       dataType: 'json',
       success: function(data) {
-        // success message
+        $("#" + data.id + ".status_success").fadeIn(500);
+        $("#" + data.id + ".status_success").html("Status updated!");
+        $("#" + data.id + ".status_success").fadeOut(2000);
       }
     })
   })
