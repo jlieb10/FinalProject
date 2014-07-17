@@ -1,5 +1,16 @@
 <h2><%= @hunt.title %></h2>
 
+<h3>apartments:</h3>
+<ul>
+   <% @hunt.apartments.each do |apartment| %>
+  	<li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
+
+	  <div>
+	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apartment.status}, {class: "status", id: apartment.id} %>
+	  </div>
+  <% end %>
+</ul>
+
 <div class="panel panel-default">
   <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span data-i18n="Apartments">Apartments:</span></strong></div>
   <table class="table table-hover">

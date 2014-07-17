@@ -40,6 +40,19 @@
   <strong>Price:</strong>
   <%= @apartment.price %>
 </p>
+
+<p>
+  <strong>Move In Date:</strong>
+  <%= @apartment.move_in_date %>
+</p>
+
+<% if @apartment.status && @apartment.status != " " %>
+  <p>
+    <strong>Status:</strong>
+    <%= @apartment.status %>
+  </p>
+<% end %>
+
 <br>
 
 <!---------- DETAILS ---------->
