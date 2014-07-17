@@ -43,3 +43,21 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $('select').each(function(item){
+    $(item).change(function(){
+      $.ajax({
+        type: 'Put',
+        url: $(this).parent().siblings().children().attr("href"),
+        data: {"authenticity_token" : $("meta").last().attr("content"), 
+        "apartment" : {"status" : $("#apartment_status option:selected").text()}
+      },
+      dataType: 'json',
+      success: function(data) {
+        // success message
+      }
+    })
+    })
+  })
+})
