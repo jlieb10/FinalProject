@@ -25,3 +25,7 @@
  .addnewapt:hover {
   text-decoration: none;
  }
+
+.form.row {
+  margin: 0 auto;
+}

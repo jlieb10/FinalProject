@@ -21,6 +21,9 @@
       <span>
         <a href="#" class="addnewapt">
           <i class="fa fa-plus"></i> New</a></span></strong></div>
+  <div class="clearfix panel-body">
+    <%= render 'apartments/form' %>
+  </div>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -45,6 +48,7 @@
       <% end %>
     </tbody>
   </table>
+</div>
 </div>
 <%= button_to 'Add New Apartment', new_hunt_apartment_path(@hunt), method: :get %>
 

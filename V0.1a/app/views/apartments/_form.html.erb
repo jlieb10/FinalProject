@@ -1,58 +1,16 @@
-<%= form_for(apartment_path_helper(@hunt, @apartment)) do |f| %>
-  <% if @apartment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+<%= form_for([@hunt, @apartment], :html => {:class => "form-inline apt-form clearfix", :role => "form"}) do |f| %>
+<%= f.hidden_field :hunt_id, :value => @hunt.id %>
 
-      <ul>
-      <% @apartment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :street %><br>
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><br>
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :move_in_date %><br>
-    <%= f.text_field :move_in_date %>
-  </div>
-
-  <% if @hunt %>
-  <%= f.hidden_field :hunt_id, :value => @hunt.id %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="row clearfix">
+<div class="form-group col-md-2"><%= f.text_field :street, class: "form-control col-md-1",  :placeholder=>"Street"%></div>
+<div class="form-group col-md-1"><%= f.text_field :unit, class: "form-control col-md-1",  :placeholder=>"Unit"%></div>
+<div class="form-group col-md-1"><%= f.text_field :city, class: "form-control col-md-1",  :placeholder=>"City"%></div>
+<div class="form-group col-md-1"><%= f.text_field :state, class: "form-control col-md-1",  :placeholder=>"State"%></div>
+<div class="form-group col-md-1"><%= f.text_field :zip, class: "form-control col-md-1",  :placeholder=>"Zip"%></div>
+<div class="form-group col-md-"><%= f.text_field :link, class: "form-control col-md-1",  :placeholder=>"Link"%></div>
+<div class="form-group col-md-2"><%= f.text_field :contact, class: "form-control col-md-1",  :placeholder=>"Contact"%></div>
+<div class="form-group col-md-1"><%= f.text_field :price, class: "form-control col-md-1",  :placeholder=>"Price"%></div>
+<div class="form-group col-md-2"><%= f.text_field :move_in_date, class: "form-control col-md-1",  :placeholder=>"Move-in Date"%></div>
+</div>
+</div>
+<%= f.submit "Confirm", :class=> "btn btn-info" %>

@@ -44,7 +44,8 @@ $(document).ready(function(){
   });
 
   $('.addnewapt').click(function(){
-    $('tbody.apartments').append("<tr><td></td></tr>")
+    var form = $('.apt-form')
+    $('tbody.apartments').append(form)
   });
 });
 

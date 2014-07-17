@@ -4,7 +4,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.all
+    apartments = Apartment.all
   end
 
   # GET /apartments/1
@@ -31,11 +31,11 @@ class ApartmentsController < ApplicationController
 
     respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
+        format.html { render :nothing, notice: 'Apartment was successfully created.' }
         format.json { render :show, status: :created, location: @apartment }
       else
         format.html { render :new }
-        format.json { render json: @apartment.errors, status: :unprocessable_entity }
+        format.json { render :nothing, status: :unprocessable_entity }
       end
     end
   end
