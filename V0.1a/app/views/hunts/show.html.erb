@@ -3,13 +3,12 @@
 <h3>apartments:</h3>
 <ul>
    <% @hunt.apartments.each do |apartment| %>
-  <li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
+  	<li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
 
-    <div class="status">
-    <%= select :apartment, :status, ["Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], selected: apartment.status %>
-  </div>
+	  <div>
+	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], selected: apartment.status %>
+	  </div>
   <% end %>
-
 </ul>
 
 <div class="panel panel-default">
