@@ -1,12 +1,14 @@
 <h2><%= @hunt.title %></h2>
 
 <h3>apartments:</h3>
+<div></div>
 <ul>
    <% @hunt.apartments.each do |apartment| %>
   	<li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
 
 	  <div>
 	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apartment.status}, {class: "status", id: apartment.id} %>
+      <div class="inline status_success" id=<%= apartment.id %>></div>
 	  </div>
   <% end %>
 </ul>
