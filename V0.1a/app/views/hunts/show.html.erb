@@ -6,7 +6,7 @@
   	<li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
 
 	  <div>
-	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], selected: apartment.status %>
+	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apartment.status}, {class: "status", id: apartment.id} %>
 	  </div>
   <% end %>
 </ul>

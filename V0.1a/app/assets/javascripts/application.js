@@ -45,19 +45,17 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-  $('select').each(function(item){
-    $(item).change(function(){
+  $('select.status').change(function(){
       $.ajax({
         type: 'Put',
-        url: $(this).parent().siblings().children().attr("href"),
+        url: "/apartments/" + $(this).attr('id'),
         data: {"authenticity_token" : $("meta").last().attr("content"), 
-        "apartment" : {"status" : $("#apartment_status option:selected").text()}
+        "apartment" : {"status" : $(this).text()}
       },
       dataType: 'json',
       success: function(data) {
         // success message
       }
-    })
     })
   })
 })
