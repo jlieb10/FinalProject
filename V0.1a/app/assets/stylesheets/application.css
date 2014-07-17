@@ -17,3 +17,11 @@
  *= require main
  *= require_self
  */
+
+ .addnewapt {
+  float: right;
+ }
+
+ .addnewapt:hover {
+  text-decoration: none;
+ }

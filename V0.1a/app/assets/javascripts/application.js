@@ -42,6 +42,10 @@ $(document).ready(function(){
       }
     });
   });
+
+  $('.addnewapt').click(function(){
+    $('tbody.apartments').append("<tr><td></td></tr>")
+  });
 });
 
 $(document).ready(function(){
