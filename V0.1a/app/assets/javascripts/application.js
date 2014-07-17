@@ -50,7 +50,7 @@ $(document).ready(function(){
         type: 'Put',
         url: "/apartments/" + $(this).attr('id'),
         data: {"authenticity_token" : $("meta").last().attr("content"), 
-        "apartment" : {"status" : $(this).text()}
+        "apartment" : {"status" : $("option:selected", this).text()}
       },
       dataType: 'json',
       success: function(data) {
