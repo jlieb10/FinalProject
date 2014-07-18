@@ -28,6 +28,9 @@ group :development, :test do
   gem "email_spec"
   gem "faker"
   gem "factory_girl"
+  gem "rack-livereload"
+  gem "guard"
+  gem "guard-livereload"
 end
 
 # Use unicorn as the app server

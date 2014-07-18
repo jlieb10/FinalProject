@@ -1,38 +1,34 @@
-<h2><%= @hunt.title %></h2>
-
-<h3>apartments:</h3>
-<div></div>
-<ul>
-   <% @hunt.apartments.each do |apartment| %>
-  	<li><%= link_to apartment.street, apartment_path(apartment), {:id => apartment.id} %></li>
-
-	  <div>
-	    <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apartment.status}, {class: "status", id: apartment.id} %>
-      <div class="inline status_success" id=<%= apartment.id %>></div>
-	  </div>
-  <% end %>
-</ul>
-
-<div class="panel panel-default">
+<section class="panel panel-default">
   <div class="panel-heading">
     <strong>
       <span class="glyphicon glyphicon-th"></span>
-      <span data-i18n="Apartments"></span>
-      <span>
+      <span data-i18n="Add New Apartment"></span>
         <a href="#" class="addnewapt">
-          <i class="fa fa-plus"></i> New</a></span></strong></div>
-  <div class="clearfix panel-body">
-    <%= render 'apartments/form' %>
-  </div>
+          <i class="fa fa-plus"></i> New</a></span></strong>
+        </div>
+        <div class="panel-body">
+         <%= render 'apartments/form' %>
+        </div>
+</section>
+<section class="panel panel-default">
+  <div class="panel-heading">
+    <strong>
+      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %>
+    </strong>
+      </div>
+       <div class="panel-body">
   <table class="table table-hover">
     <thead>
       <tr>
         <th>View</th>
         <th>Street</th>
         <th>Unit</th>
-
         <th>Price</th>
         <th></th>
+        <th>Contact</th>
+        <th>Link</th>
+        <th>Price</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody class="apartments">
@@ -44,16 +40,19 @@
         <td><%= apt.street %></td>
         <td><%= apt.unit %></td>
         <td><%= apt.contact %></td>
+        <td><%= apt.link %></td>
         <td><%= apt.price %></td>
         <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
+        </td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-</div>
-<%= button_to 'Add New Apartment', new_hunt_apartment_path(@hunt), method: :get %>
+</section>
 
 <%= render '/users/invitations/form' %>
 
 <%= link_to 'Edit Hunt', edit_hunt_path(@hunt) %>
+
