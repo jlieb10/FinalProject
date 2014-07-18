@@ -4,7 +4,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    apartments = Apartment.all
+    @apartments = Apartment.all
   end
 
   # GET /apartments/1
@@ -59,8 +59,9 @@ class ApartmentsController < ApplicationController
   def destroy
     @apartment.destroy
     respond_to do |format|
-      format.html { redirect_to hunt_apartments_path(@hunt), notice: 'Apartment was successfully destroyed.' }
+      format.html { redirect_to hunt_path(@hunt), notice: 'Apartment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

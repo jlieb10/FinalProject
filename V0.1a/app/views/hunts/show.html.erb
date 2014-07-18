@@ -30,13 +30,14 @@
         <th>View</th>
         <th>Street</th>
         <th>Unit</th>
-        <th>Contact</th>
+
         <th>Price</th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="apartments">
       <% @hunt.apartments.each do |apt| %>
-      <tr>
+      <tr data-id=<%= apt.id %>>
         <td><%= link_to apartment_path(apt) do %>
           <i class="fa fa-home fa-2x"></i>
         <% end %></td>
@@ -44,6 +45,7 @@
         <td><%= apt.unit %></td>
         <td><%= apt.contact %></td>
         <td><%= apt.price %></td>
+        <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     </tbody>
