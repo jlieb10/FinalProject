@@ -28,12 +28,13 @@ class ApartmentsController < ApplicationController
   # POST /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
+    @hunt = @apartment.hunt
     respond_to do |format|
       if @apartment.save
-        format.html { render :nothing, notice: 'Apartment was successfully created.' }
-        format.json { render :show, status: :created, location: @apartment }
+        format.html { redirect_to hunt_path(@hunt), notice: 'Apartment was successfully created.' }
+        format.json { render :nothing, status: :created, location: @hunt }
       else
-        format.html { render :new }
+        format.html { redirect_to hunt_path(@hunt) }
         format.json { render :nothing, status: :unprocessable_entity }
       end
     end
