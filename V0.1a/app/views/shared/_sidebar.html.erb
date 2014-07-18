@@ -7,14 +7,16 @@
                 <li><a href="#/pages/signin"><i class="fa fa-caret-right"></i><span data-i18n="Add New Hunt">Add New Hunt</span></a></li>
                 <li><a href="#/pages/signup"><i class="fa fa-caret-right"></i><span data-i18n="Hunt History">Hunt History</span></a></li>
               </ul>
-        <i class="fa fa-caret-right icon-has-ul"></i></li> 
+        <i class="fa fa-caret-right icon-has-ul"></i></li>
         <li>
             <a href="#/Apartments"><i class="fa fa-file-text-o"><span class="icon-bg bg-warning"></span></i><span data-i18n="Apartments">Apartments</span></a>
             <ul>
                 <% if @hunt %>
+                    <% if @hunt.id %>
                 <li><%= link_to new_hunt_apartment_path(@hunt) do %><i class="fa fa-caret-right"></i><span data-i18n="Add New Apt">Add New Apartment</span><%end%></li>
                 <% else %>
                 <li><a href = "#"><i class="fa fa-caret-right"></i><span data-i18n="Add New Apt">Add New Apartment</span></a></li>
+                <%end%>
                 <%end%>
                 <li><a href="#"><i class="fa fa-caret-right"></i><span data-i18n="Add Collaborators">Add Collaborators</span></a></li>
             </ul>
