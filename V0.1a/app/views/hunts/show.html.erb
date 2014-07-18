@@ -3,11 +3,13 @@
     <strong>
       <span class="glyphicon glyphicon-th"></span>
       <span data-i18n="Add New Apartment"></span>
-        <a href="#" class="addnewapt">
+        <a href="#" class="addnewapt" ng-click="isCollapsed = !isCollapsed">
           <i class="fa fa-plus"></i> New</a></span></strong>
         </div>
         <div class="panel-body">
+          <div collapse="isCollapsed">
          <%= render 'apartments/form' %>
+          </div>
         </div>
 </section>
 <section class="panel panel-default">
@@ -41,8 +43,8 @@
         <td><%= apt.contact %></td>
         <td><%= apt.link %></td>
         <td><%= apt.price %></td>
-        <td><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
-        </td>
+        <td><span class="ui-select"><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
+        </td></span>  
         <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
