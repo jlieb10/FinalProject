@@ -2,7 +2,7 @@
 <%= image_tag @user.profpic_url(:thumb1) if @user.profpic_url %>
 
 <div class="col-md-6">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, :url => { :controller => :'my_devise/registrations', :action => :update}, html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />

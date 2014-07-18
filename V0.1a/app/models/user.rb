@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :user_hunts
   has_many :hunts, through: :user_hunts
   has_many :apartments, through: :hunts
-  has_one :profpic
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,

@@ -1,4 +1,5 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
+  before_filter :configure_permitted_parameters
 
   def create
     build_resource(sign_up_params)
@@ -26,7 +27,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     unless user.blank?
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
-      
+
       current_password = params[:user].delete(:current_password)
 
       if user.valid_password?(current_password) && user.update_attributes(user_params)
@@ -61,7 +62,5 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :profpic)
     end
-
-
 end
 
