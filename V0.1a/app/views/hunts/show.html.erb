@@ -27,11 +27,12 @@
         <th>Link</th>
         <th>Price</th>
         <th>Status</th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="apartments">
       <% @hunt.apartments.each do |apt| %>
-      <tr>
+      <tr data-id=<%= apt.id %>>
         <td><%= link_to apartment_path(apt) do %>
           <i class="fa fa-home fa-2x"></i>
         <% end %></td>
@@ -40,9 +41,10 @@
         <td><%= apt.contact %></td>
         <td><%= apt.link %></td>
         <td><%= apt.price %></td>
-        <td>      <%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
-<!--       <div class="inline status_success" id="<%= apt.id %>"></div>
- -->    </td>
+        <td><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
+        </td>
+        <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
       <% end %>
     </tbody>
