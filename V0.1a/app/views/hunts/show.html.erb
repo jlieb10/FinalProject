@@ -1,10 +1,14 @@
+ <ol class="breadcrumb">
+    <li><%= link_to "My Hunts", hunts_path %></a></li>
+    <li class="active"><a href=""><%= @hunt.title %></a></li>
+</ol>
 <section class="panel panel-default">
   <div class="panel-heading">
     <strong>
       <span class="glyphicon glyphicon-th"></span>
       <span data-i18n="Add New Apartment"></span>
         <a href="#" class="addnewapt" ng-click="isCollapsed = !isCollapsed">
-          <i class="fa fa-plus"></i> New</a></span></strong>
+           <i class="fa fa-plus"></i> </a></span></strong>
         </div>
         <div class="panel-body">
           <div collapse="isCollapsed">
@@ -15,7 +19,8 @@
 <section class="panel panel-default">
   <div class="panel-heading">
     <strong>
-      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %>
+      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %></span> <a href="#" class="addnewapt" >
+          New Collaborator <i class="fa fa-plus"></i> </a>
     </strong>
       </div>
        <div class="panel-body">
@@ -53,8 +58,17 @@
   </table>
 </div>
 </section>
+<!-- <div class="col-md-3">
+  <div class="panel panel-profile">
+                <div class="panel-heading bg-primary clearfix">
+                    <a href="" class="pull-left profile">
+                        <img alt="" src="http://placekitten.com/80/80" class="img-circle img80_80">
+                    </a>
+                    <h3 class="ng-binding">Your Hunt</br> Partners</h3>
+                </div>
+                <%= render '/users/invitations/form' %>
+                </div>
+                </div>
+ -->
 
-<%= render '/users/invitations/form' %>
-
-<%= link_to 'Edit Hunt', edit_hunt_path(@hunt) %>
 
