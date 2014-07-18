@@ -22,11 +22,15 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    user = User.find_by_id(params[:id])
+    user = current_user
+    binding.pry
     unless user.blank?
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
-      if user.update_attributes(params[:user])
+      
+      current_password = params[:user].delete(:current_password)
+
+      if user.valid_password?(current_password) && user.update_attributes(user_params)
         flash[:notice] = "User updated successfully."
       else
         render :action => 'edit'
@@ -53,6 +57,11 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
       #respond_with resource
     end
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :profpic)
+    end
 
 
 end
