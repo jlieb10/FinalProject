@@ -23,12 +23,11 @@
         <th>View</th>
         <th>Street</th>
         <th>Unit</th>
-        <th>Price</th>
-        <th></th>
         <th>Contact</th>
         <th>Link</th>
         <th>Price</th>
         <th>Status</th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="apartments">
@@ -42,8 +41,9 @@
         <td><%= apt.contact %></td>
         <td><%= apt.link %></td>
         <td><%= apt.price %></td>
-        <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
+        </td>
+        <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
       <% end %>
