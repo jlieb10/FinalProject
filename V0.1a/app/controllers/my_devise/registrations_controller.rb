@@ -23,7 +23,6 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def update
     user = current_user
-    binding.pry
     unless user.blank?
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
