@@ -63,6 +63,7 @@ $(document).ready(function(){
         $("#" + data.id + ".status_success").html("Status updated!");
         $("#" + data.id + ".status_success").fadeOut(2000);
       }
-    })
-  })
-})
+    });
+  });
+});
+
