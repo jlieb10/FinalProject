@@ -78,6 +78,11 @@ GEM
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
     diff-lcs (1.2.5)
+    easymarklet (0.0.12)
+      easyxdm-rails (~> 0.0.5)
+      rails (>= 3.2.9)
+    easyxdm-rails (0.0.8)
+      rails (>= 3.2.8)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -241,6 +246,7 @@ DEPENDENCIES
   cucumber
   devise
   devise_invitable
+  easymarklet
   email_spec
   factory_girl
   faker
