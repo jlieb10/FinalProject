@@ -1,7 +1,10 @@
- <ol class="breadcrumb">
+<ol class="breadcrumb">
     <li><%= link_to "My Hunts", hunts_path %></a></li>
     <li class="active"><%= @hunt.title %></li>
 </ol>
+
+<%= link_to 'FvB Simple', easymarklet_js('fvb_simple_bookmarklet.js') %>
+
 <section class="panel panel-default">
   <div class="panel-heading">
     <strong>
