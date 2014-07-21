@@ -1,6 +1,6 @@
  <ol class="breadcrumb">
     <li><%= link_to "My Hunts", hunts_path %></a></li>
-    <li class="active"><a href=""><%= @hunt.title %></a></li>
+    <li class="active"><%= @hunt.title %></li>
 </ol>
 <section class="panel panel-default">
   <div class="panel-heading">
@@ -11,7 +11,7 @@
            <i class="fa fa-plus"></i> </a></span></strong>
         </div>
         <div class="panel-body">
-          <div collapse="isCollapsed">
+          <div collapse="!isCollapsed" class= "newaptcollapse" >
          <%= render 'apartments/form' %>
           </div>
         </div>
@@ -66,17 +66,4 @@
   </table>
 </div>
 </section>
-<!-- <div class="col-md-3">
-  <div class="panel panel-profile">
-                <div class="panel-heading bg-primary clearfix">
-                    <a href="" class="pull-left profile">
-                        <img alt="" src="http://placekitten.com/80/80" class="img-circle img80_80">
-                    </a>
-                    <h3 class="ng-binding">Your Hunt</br> Partners</h3>
-                </div>
-                <%= render '/users/invitations/form' %>
-                </div>
-                </div>
- -->
-
 
