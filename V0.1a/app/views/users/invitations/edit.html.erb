@@ -1,28 +1,66 @@
-<h2><%= t 'devise.invitations.edit.header' %></h2>
+<div class="page-signup">
 
+  <div class="signin-header">
+    <div class="container text-center">
+      <section class="logo">
+        <a href="#"><span class="fa fa-home">Abodely</span></a>
+      </section>
+    </div>
+  </div>
+
+  <div class="signup-body">
+    <div class="container">
+      <div class="form-container">
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
-
-  <div class="hidden">
+    <div class="hidden">
     <%= @inviter = User.find(resource.invited_by_id) %>
     <%= resource.hunts << @inviter.latest_hunt %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+        <section>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-user"></span>
+              </span>
+
+              <%= f.text_field :name, autofocus: true, :placeholder=> "Your Name", :class=> "form-control"%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <%= f.password_field :password, autocomplete: "off", :placeholder=> "Password", :class=> "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-ok"></span>
+              </span>
+              <%= f.password_field :password_confirmation, autocomplete: "off",:placeholder=> "Password Confirmation", :class=> "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <p class="text-muted text-small">By clicking on Sign up, you agree to <a href="javascript:;">terms &amp; conditions</a> and <a href="javascript:;">privacy policy</a></p>
+            <div class="divider"></div>
+            <%= f.submit "Sign up", :class=> "btn btn-primary btn-block btn-lg"%>
+          </div>
+
+          <% end %>
+
+        </section>
+
+        <section>
+          <p class="text-center text-muted">Already have an account?<%= render "devise/shared/links" %></p>
+        </section>
+
+      </div>
+    </div>
   </div>
-
-<div class="field">
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
 </div>
-
-<div class="field">
-  <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %>
-</div>
-
-  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
-<% end %>
