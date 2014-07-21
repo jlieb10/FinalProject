@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
   def latest_hunt
     self.hunts.last
   end
+
+  def add_hunt
+    inviter = User.find(self.invited_by_id)
+    UserHunt.create(:user_id => self.id, :hunt_id => inviter.latest_hunt.id)
+  end
 end

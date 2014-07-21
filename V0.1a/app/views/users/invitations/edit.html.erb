@@ -11,13 +11,12 @@
   <div class="signup-body">
     <div class="container">
       <div class="form-container">
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :invitation_token %>
-    <div class="hidden">
-    <%= @inviter = User.find(resource.invited_by_id) %>
-    <%= resource.hunts << @inviter.latest_hunt %>
-  </div>
+        <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+          <%= devise_error_messages! %>
+            <div class="hidden">
+              <%= f.hidden_field :invitation_token %>
+              <%= resource.add_hunt %>
+            </div>
 
         <section>
           <div class="form-group">
@@ -25,7 +24,6 @@
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-user"></span>
               </span>
-
               <%= f.text_field :name, autofocus: true, :placeholder=> "Your Name", :class=> "form-control"%>
             </div>
           </div>
