@@ -23,66 +23,55 @@
 
 <!---------- BASIC APARTMENT INFORMATION ---------->
 <div class="page ng-scope">
-
-    <section class="panel panel-default">
-        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %></strong></div>
-        <div class="panel-body ng-scope" data-ng-controller="RatingDemoCtrl">
-
-
-<p>
-  <strong>Unit:</strong>
-  <%= @apartment.unit %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @apartment.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @apartment.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @apartment.zip %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @apartment.link %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @apartment.contact %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @apartment.price %>
-</p>
-
-<p>
-  <strong>Move In Date:</strong>
-  <%= @apartment.move_in_date %>
-</p>
-
-<% if @apartment.status && @apartment.status != " " %>
-  <p>
-    <strong>Status:</strong>
-    <%= @apartment.status %>
-  </p>
-<% end %>
-
-<br>
+     <ol class="breadcrumb">
+        <li><%= link_to "My Hunts", hunts_path %></a></li>
+        <li><%= link_to @apartment.hunt.title, hunt_path(@hunt.id) %></a></li>
+        <li class="active"><a href=""><%= @apartment.street %></a></li>
+    </ol>
+    <div class="col-md-3">
+    <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %> <%= @apartment.unit %> <%= @apartment.city %> <%= @apartment.state %> <%= @apartment.zip %></strong></div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <ul class="list-unstyled list-info">
+                                <li class="ng-binding">
+                                    <span class="icon glyphicon glyphicon-paperclip"></span>
+                                    <label>Link:</label>
+                                    <%= @apartment.link %>
+                                </li>
+                                <li>
+                                    <span class="icon glyphicon glyphicon-user"></span>
+                                    <label>Contact:</label>
+                                    <%= @apartment.contact %>
+                                </li>
+                                <li>
+                                    <span class="icon glyphicon glyphicon-usd"></span>
+                                    <label>Price:</label>
+                                    <%= @apartment.price %>
+                                </li>
+                                <li>
+                                    <span class="icon glyphicon glyphicon-calendar"></span>
+                                    <label>Move In Date:</label>
+                                    <%= @apartment.move_in_date %>
+                                </li>
+                                <li>
+                                    <span class="icon glyphicon glyphicon-globe"></span>
+                                    <label>Website:</label>
+                                    www.site.com
+                                </li>
+                            </ul>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
 
 <!---------- DETAILS ---------->
-<% if @apartment.details %>
-<div class="panel panel-default">
-  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
-  <table class="table table-hover">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
+        <table class="table table-hover">
     <thead>
       <tr>
         <th>Picture</th>
@@ -111,12 +100,12 @@
         <% end %>
       </tbody>
     </table>
-  </div>
 
-<% end %>
 
-<!---------- PRO/CON LIST ---------->
-
+<!---------- LINKS ---------->
+<div>
+  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> 
+</div>
 <div>
   PROS
 </div>
@@ -138,14 +127,7 @@
   <% end %>
 <% end %>
 </ul>
-
-<!---------- LINKS ---------->
-<div>
-  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> |
-  <%= link_to 'Back', hunt_path(@hunt.id) %>
 </div>
-   </div>
-    </section>
 </div>
 
 <!-- Google Map -->
