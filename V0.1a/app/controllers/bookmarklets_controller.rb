@@ -4,9 +4,11 @@ class BookmarkletsController < ApplicationController
   # GET /bookmarklets
   # GET /bookmarklets.json
   def index
-    @bookmarklet = Bookmarklet.new(params[:url])
+    user = current_user
+    hunt = user.hunts.last
+    @bookmarklet = Bookmarklet.new(params[:url], user)
     @bookmarklet.run
-    # redirect_to ''
+    redirect_to hunt_path(hunt.id)
   end
 
   # GET /bookmarklets/1
