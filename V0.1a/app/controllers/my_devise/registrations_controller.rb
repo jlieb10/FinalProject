@@ -26,7 +26,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     unless user.blank?
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
-      
+
       current_password = params[:user].delete(:current_password)
 
       if user.valid_password?(current_password) && user.update_attributes(user_params)
@@ -64,4 +64,3 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
 
 end
-

@@ -64,6 +64,18 @@ $(document).ready(function(){
         $("#" + data.id + ".status_success").fadeOut(2000);
       }
     });
-  });
+     });
+
+//add apt form opens when the side nav link is clicked
+    $("a span.newapt").click(function(){
+      console.log("Clicked");
+      $("div .newaptcollapse").addClass("in").animate({height: "auto"},1500);
+    });
+
+//add hunt form opens when the side nav link is clicked
+     $("a span.newhunt").click(function(){
+      console.log("Clicked");
+      $("div .newhuntcollapse").addClass("in").animate({height: "auto"},1500);
+    });
 });
 

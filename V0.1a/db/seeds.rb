@@ -6,6 +6,63 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-100.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email )
+
+
+User.create(
+  :name => "Stephanie",
+  :email => "stephanie@stephanie.com",
+  :password => "stephanie"
+)
+
+User.create(
+  :name => "Joshua",
+  :email => "joshua@joshua.com",
+  :password => "joshuajoshua"
+)
+
+User.create(
+  :name => "Charlotte",
+  :email => "Charlotte@Charlotte.com",
+  :password => "charlotte"
+)
+
+User.create(
+  :name => "Shelly",
+  :email => "shelly@shelly.com",
+  :password => "shellyshelly"
+)
+
+UserHunt.create(
+  :user_id => 1,
+  :hunt_id => 1,
+)
+UserHunt.create(
+  :user_id => 2,
+  :hunt_id => 1,
+)
+UserHunt.create(
+  :user_id => 3,
+  :hunt_id => 1,
+)
+UserHunt.create(
+  :user_id => 4,
+  :hunt_id => 1,
+)
+
+Hunt.create(
+  :title => "August Hunt",
+)
+
+15.times do
+  Apartment.create(
+    :hunt_id => 1,
+    :street => Faker::Address.street_address,
+    :unit => Faker::Address.secondary_address,
+    :city => "Brooklyn",
+    :state => "NY",
+    :zip => Faker::Address.zip,
+    :link => Faker::Internet.email,
+    :contact => Faker::Internet.url,
+    :price => 4000
+  )
 end

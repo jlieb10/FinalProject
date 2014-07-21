@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
     <li><%= link_to "My Hunts", hunts_path %></a></li>
-    <li class="active"><a href=""><%= @hunt.title %></a></li>
+    <li class="active"><%= @hunt.title %></li>
 </ol>
 
 <%= link_to 'FvB Simple', easymarklet_js('fvb_simple_bookmarklet.js') %>
@@ -14,7 +14,7 @@
            <i class="fa fa-plus"></i> </a></span></strong>
         </div>
         <div class="panel-body">
-          <div collapse="isCollapsed">
+          <div collapse="!isCollapsed" class= "newaptcollapse" >
          <%= render 'apartments/form' %>
           </div>
         </div>
@@ -22,8 +22,16 @@
 <section class="panel panel-default">
   <div class="panel-heading">
     <strong>
-      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %></span> <a href="#" class="addnewapt" >
-          New Collaborator <i class="fa fa-plus"></i> </a>
+      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %></span>
+      <div ng-controller="ModalDemoCtrl" class="addnewcollab">
+      <script type="text/ng-template" id="inviteForm.html.erb">
+        <div class="modal-header">
+<%= render 'users/invitations/form' %>
+    </script>
+      <a href="#" ng-click="open()">
+          New Collaborator <i class="fa fa-plus"></i>
+        </a>
+      </div>
     </strong>
       </div>
        <div class="panel-body">
@@ -52,7 +60,7 @@
         <td><%= apt.link %></td>
         <td><%= apt.price %></td>
         <td><span class="ui-select"><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
-        </td></span>  
+        </td></span>
         <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
@@ -61,17 +69,4 @@
   </table>
 </div>
 </section>
-<!-- <div class="col-md-3">
-  <div class="panel panel-profile">
-                <div class="panel-heading bg-primary clearfix">
-                    <a href="" class="pull-left profile">
-                        <img alt="" src="http://placekitten.com/80/80" class="img-circle img80_80">
-                    </a>
-                    <h3 class="ng-binding">Your Hunt</br> Partners</h3>
-                </div>
-                <%= render '/users/invitations/form' %>
-                </div>
-                </div>
- -->
-
 

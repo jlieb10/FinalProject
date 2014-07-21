@@ -35,17 +35,17 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings {
-  #   :address => "smtp.gmail.com",
-  #   :port => "587",
-  #   :domain => "gmail.com",
-  #   :authentication => "plain",
-  #   :enable_starttls_auto => true,
-  #   :user_name => ENV["EMAIL_KEY"],
-  #   :password => ENV["EMAIL_SECRET"]
-  # }
-  config.action_mailer.delivery_method = :letter_opener
+ config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "gmail.com",
+  :user_name            => "abodelydev@gmail.com",
+  :password             => "PassWord1234567",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
+  #config.action_mailer.delivery_method = :letter_opener
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

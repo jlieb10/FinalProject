@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :image, "Take Your Own Pictures" %><br>
+    <input capture="camera" type="file" name="detail[image]" accept="image/*" />
+  </div>
+
+  <div class="field">
     <%= f.label :remote_image_url, "or image URL" %><br>
     <%= f.text_field :remote_image_url %>
   </div>

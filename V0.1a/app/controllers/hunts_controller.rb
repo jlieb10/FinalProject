@@ -5,6 +5,8 @@ class HuntsController < ApplicationController
   # GET /hunts.json
   def index
     @hunts = current_user.hunts.reverse
+    @user = current_user.id
+    @hunt = Hunt.new
   end
 
   # GET /hunts/1
@@ -12,7 +14,6 @@ class HuntsController < ApplicationController
   def show
     @apartment = Apartment.new(:hunt_id => @hunt.id)
     @invited_user = User.new
-    @invited_user.hunts << current_user.hunts.last
   end
 
   # GET /hunts/new

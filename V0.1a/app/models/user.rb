@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :user_hunts
   has_many :hunts, through: :user_hunts
   has_many :apartments, through: :hunts
-  has_one :profpic
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -13,5 +12,10 @@ class User < ActiveRecord::Base
 
   def latest_hunt
     self.hunts.last
+  end
+
+  def add_hunt
+    inviter = User.find(self.invited_by_id)
+    UserHunt.create(:user_id => self.id, :hunt_id => inviter.latest_hunt.id)
   end
 end
