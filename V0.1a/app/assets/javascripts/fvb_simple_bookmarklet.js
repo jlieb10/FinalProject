@@ -10,9 +10,9 @@
       div.id = 'fvb_simple_insert'
 
       var go = document.createElement('a')
-      go.appendChild(document.createTextNode('Vote on the Foo V Baz status of this page.'))
+      go.appendChild(document.createTextNode('Add this listing to Abodely.'))
       go.onclick = function(){
-        var dest = full_host + "/pages/new?url=" + encodeURIComponent(document.location)
+        var dest = full_host + "/bookmarklets?url=" + encodeURIComponent(document.location)
         document.location = dest;
       }
 
@@ -33,4 +33,6 @@
 })();
 
 var fvb_simple_simple = new Easymarklet.Simple(FvbSimpleBookmarklet);
-fvb_simple_simple.init();
+fvb_simple_simple.init('http://0.0.0.0:3000');
+
+
