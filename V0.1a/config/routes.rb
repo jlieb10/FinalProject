@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookmarklets
+
   #get 'users/show', :path => "profile"
 
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout', :edit => 'profile' }, :controllers => { :registrations => "my_devise/registrations", :sessions => "my_devise/sessions"}
