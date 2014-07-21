@@ -19,8 +19,16 @@
 <section class="panel panel-default">
   <div class="panel-heading">
     <strong>
-      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %></span> <a href="#" class="addnewapt" >
-          New Collaborator <i class="fa fa-plus"></i> </a>
+      <span class="glyphicon glyphicon-th"></span> <%= @hunt.title %></span>
+      <div ng-controller="ModalDemoCtrl" class="addnewcollab">
+      <script type="text/ng-template" id="inviteForm.html.erb">
+        <div class="modal-header">
+<%= render 'users/invitations/form' %>
+    </script>
+      <a href="#" ng-click="open()">
+          New Collaborator <i class="fa fa-plus"></i>
+        </a>
+      </div>
     </strong>
       </div>
        <div class="panel-body">
@@ -49,7 +57,7 @@
         <td><%= apt.link %></td>
         <td><%= apt.price %></td>
         <td><span class="ui-select"><%= select :apartment, :status, [" ", "Applied for", "Viewed", "No longer interested", "Contacted agent/landlord", "Application denied"], {selected: apt.status}, {class: "status", id: apt.id} %>
-        </td></span>  
+        </td></span>
         <td><%= link_to 'Delete', apt, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>

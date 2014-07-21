@@ -1,5 +1,4 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_permitted_parameters
 
   def create
     build_resource(sign_up_params)
@@ -62,5 +61,6 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :profpic)
     end
-end
 
+
+end
