@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require vendor.js
 //= require ui.js
+//= require owl.carousel
 //= require app.js
 //= require_tree .
 
@@ -77,5 +78,24 @@ $(document).ready(function(){
       console.log("Clicked");
       $("div .newhuntcollapse").addClass("in").animate({height: "auto"},1500);
     });
+
+   // $("#owl-demo").owlCarousel({
+   //     // autoPlay : 3000,
+   //     stopOnHover : true,
+   //     navigation:true,
+   //     paginationSpeed : 1000,
+   //     goToFirstSpeed : 2000,
+   //     singleItem : true,
+   //     autoHeight : true,
+   //     transitionStyle:"fade"
+   //   });
+
+  $(".image").click(function() {
+  var image = $(this).attr("rel");
+  $('#image').hide();
+  $('#image').fadeIn('slow');
+  $('#image').html('<img src="' + image + '"/>');
+  return false;
+      });
 });
 

@@ -67,6 +67,18 @@
             </div>
           </div>
 
+<!---------- IMAGE GALLERY ---------->
+    <div class= "col-md-6">
+      <div class= "gallery-wrap">
+     <div id="image"><%= image_tag @apartment.details[0].image_url[0] if @apartment.details[0].image_url %></div>
+          <% @apartment.details.each do |detail| %>
+            <a href="#" rel="<%=detail.image_url%>" class="image"> <%= image_tag detail.image_url(:thumb) if detail.image_url %></a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
 <!---------- DETAILS ---------->
     <div class="col-md-9">
       <div class="panel panel-default">
