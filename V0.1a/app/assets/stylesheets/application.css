@@ -34,3 +34,7 @@ div.addnewcollab {
   display: inline;
   float: right;
 }
+
+.text-muted.text-small {
+  font-size: 1em;
+}
