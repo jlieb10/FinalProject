@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email
   validates_uniqueness_of :email
   mount_uploader :profpic, ProfpicUploader
 

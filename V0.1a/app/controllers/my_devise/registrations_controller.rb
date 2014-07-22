@@ -26,12 +26,15 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     unless user.blank?
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+      params[:user].delete(:email) if params[:user][:email].blank?
 
       current_password = params[:user].delete(:current_password)
 
       if user.valid_password?(current_password) && user.update_attributes(user_params)
         flash[:notice] = "User updated successfully."
+        render :action => 'edit'
       else
+        flash[:notice] = "Please enter your password to update profile."
         render :action => 'edit'
       end
     else

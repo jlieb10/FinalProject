@@ -1,4 +1,9 @@
 <h2>Profile <%= resource_name.to_s.humanize %></h2>
+
+<% if flash[:notice] %>
+  <p class='notice'><%= flash[:notice] %></p>
+<% end %>
+
 <%= image_tag @user.profpic_url(:thumb1) if @user.profpic_url %>
 
 <div class="col-md-6">
