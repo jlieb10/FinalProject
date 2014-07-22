@@ -18,7 +18,7 @@
   </script>
 </head>
 <body>
-  
+
 
 
 <!---------- BASIC APARTMENT INFORMATION ---------->
@@ -60,7 +60,7 @@
                                     <label>Website:</label>
                                     www.site.com
                                 </li>
-                            </ul>     
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,16 @@
 <!---------- DETAILS ---------->
     <div class="col-md-9">
       <div class="panel panel-default">
-        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong>      <div ng-controller="ModalDemoCtrl" class="addnewcollab">
+      <script type="text/ng-template" id="inviteForm.html.erb">
+        <%= render 'details/form' %>
+    </script>
+      <a href="#" ng-click="open()">
+          Add Image <i class="fa fa-plus"></i>
+        </a>
+      </div>
+    </strong>
+      </div>
         <table class="table table-hover">
     <thead>
       <tr>
@@ -104,7 +113,7 @@
 
 <!---------- LINKS ---------->
 <div>
-  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> 
+  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %>
 </div>
 <div>
   PROS
@@ -132,7 +141,7 @@
 
 <!-- Google Map -->
   <div id="map_canvas">
-    
+
   </div>
 
 </body>
