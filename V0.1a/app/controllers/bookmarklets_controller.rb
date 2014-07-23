@@ -1,6 +1,7 @@
 class BookmarkletsController < ApplicationController
-
-  # GET /bookmarklets
+before_action :check_referer, only: [:index]
+ 
+ 	# GET /bookmarklets
   # GET /bookmarklets.json
   def index
     @url = params[:url]
@@ -9,5 +10,14 @@ class BookmarkletsController < ApplicationController
     @bookmarklet.run
     redirect_to user.latest_hunt
   end
+
+  private
+    def check_referer
+      url = request.referrer
+      host = Addressable::URI.parse(url).host
+    	if !host.match("craigslist.org")
+        redirect_to url
+      end
+    end
 
 end
