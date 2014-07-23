@@ -17,8 +17,7 @@ before_action :check_referer, only: [:index]
     url = request.referer
     contents = open(url) {|f| f.read }
     if cl_indicators.any? { |indicator| !contents.include?(indicator) }
-  	# if !contents.include?("craigslist.org") || !contents.include?("all housing") || !contents.include?("postingbody")
-        redirect_to url
+      redirect_to url
     end
   end
 end
