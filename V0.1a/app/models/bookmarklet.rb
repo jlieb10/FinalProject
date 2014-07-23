@@ -38,11 +38,10 @@ class Bookmarklet
 		agent = Mechanize.new
 		agent.get(@url)
 		new_page = agent.page.link_with(:text => "show contact info")
-
 		if new_page != nil
-		    @number = new_page.click.body.match(/\d.?\d.?\d.?.?.?\d.?\d.?\d.?.?.?\d.?\d.?\d.?\d/)[0]
+		  @number = new_page.click.body.match(/\d.?\d.?\d.?.?.?\d.?\d.?\d.?.?.?\d.?\d.?\d.?\d/)[0]
 		else
-		    @number = "See Craiglist page for contact info."
+		  @number = "See Craiglist page for contact info."
 		end
 	end
 
