@@ -70,7 +70,7 @@
 
 <!---------- IMAGE GALLERY ---------->
 <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Gallery:</span>
-          <div ng-controller="ModalDemoCtrl" class="addnewcollab">
+          <div ng-controller="ModalDemoCtrl" class="addnewimg">
       <script type="text/ng-template" id="inviteForm.html.erb">
         <%= render 'details/form' %>
     </script>
@@ -83,7 +83,7 @@
     <div class= "col-md-6">
       <ul class="bxslider">
         <% @apartment.details.each do |detail| %>
-         <li><%= image_tag detail.image_url(:thumb) if detail.image_url %></li>
+         <li><%= image_tag detail.image_url(:gallery) if detail.image_url %></li>
           <% end %>
         </ul>
         </div>
