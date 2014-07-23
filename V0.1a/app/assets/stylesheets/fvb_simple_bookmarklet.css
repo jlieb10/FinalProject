@@ -2,19 +2,19 @@
   position:fixed;
   top:10px;
   left:10px;
-  background:black;
-  border:3px double white;
+  background:#1FBED6;
+  border:3px single black;
   color:white;
   padding:10px;
-  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+/*  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow:    7px 7px 5px rgba(50, 50, 50, 0.75);
-  box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);
+  box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);*/
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   z-index:10000;
 }
 
-a:hover{ 
-background-color:yellow;
+#fvb_simple_insert a:hover{ 
+  color:black;
 }
