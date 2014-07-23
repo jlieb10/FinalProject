@@ -22,21 +22,22 @@
 
 
 <!---------- BASIC APARTMENT INFORMATION ---------->
-<div class="page ng-scope">
+<div class="page page-tasks ng-scope">
      <ol class="breadcrumb">
         <li><%= link_to "My Hunts", hunts_path %></a></li>
         <li><%= link_to @apartment.hunt.title, hunt_path(@hunt.id) %></a></li>
         <li class="active"><a href=""><%= @apartment.street %></a></li>
     </ol>
+  <div class="row">
     <div class="col-md-3">
-    <div class="panel panel-default">
-                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %> <%= @apartment.unit %> <%= @apartment.city %> <%= @apartment.state %> <%= @apartment.zip %></strong></div>
+     <div class="panel panel-default">
+          <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %> <%= @apartment.unit %> <%= @apartment.city %> <%= @apartment.state %> <%= @apartment.zip %></strong></div>
                 <div class="panel-body">
                     <div class="media">
                         <div class="media-body">
                             <ul class="list-unstyled list-info">
                                 <li class="ng-binding">
-                                    <span class="icon glyphicon glyphicon-paperclip"></span>
+                                  <span class="icon glyphicon glyphicon-paperclip"></span>
                                     <label>Link:</label>
                                     <%= @apartment.link %>
                                 </li>
@@ -69,18 +70,95 @@
 
 <!---------- IMAGE GALLERY ---------->
     <div class= "col-md-6">
-      <div class= "gallery-wrap">
-     <div id="image"><%= image_tag @apartment.details[0].image_url[0] if @apartment.details[0].image_url %></div>
-          <% @apartment.details.each do |detail| %>
-            <a href="#" rel="<%=detail.image_url%>" class="image"> <%= image_tag detail.image_url(:thumb) if detail.image_url %></a>
+      <ul class="bxslider">
+        <% @apartment.details.each do |detail| %>
+         <li><%= image_tag detail.image_url(:thumb) if detail.image_url %></li>
           <% end %>
+        </ul>
         </div>
       </div>
-    </div>
-
+    <div class="divider"></div>
 
 <!---------- DETAILS ---------->
-    <div class="col-md-9">
+    <div class="row">
+    <div class="col-md-12">
+            <section class="task-container ng-scope" data-ng-controller="taskCtrl">
+              <%= render 'details/form2' %>
+            <div class="divider"></div>
+<!--             <div class="panel panel-default">  
+ -->             
+                <section>
+                    <ul class="task-list list-unstyled">
+                      <% @apartment.details.each do |detail| %>
+                        <li  class="ng-scope">
+                          <div class="row view">
+                            <div class="col-sm-10">
+                                <label data-ng-dblclick="edit(task)" class="ng-binding"><%= detail.content if detail.content %></label>
+                              </div>
+                              <div class="col-sm-2"><%= form_for(detail) do |f| %>
+                    <div class="field">
+            <%= f.label :procon, "Pro", :class=>"ui-radio"%>
+              <%= f.radio_button :procon, "pro", :class => "pro" %>
+            <%= f.label :procon, "Con", :class=>"ui-radio"%>
+              <%= f.radio_button :procon, "con", :class => "con"%>
+          </div>
+          <%end%>
+        </div>
+                               <span class="glyphicon glyphicon-pencil"></span>
+                                 <%= link_to detail_path(detail), method: :delete do %><span class="glyphicon glyphicon-remove"></span><%end%>
+                               </div>
+                        </li>
+                        <%end%>
+                    </ul>
+                </section>
+
+                <footer class="task-footer">
+                    <ul class="list-inline clearfix">
+                        <li class="first-item">
+                            <input type="checkbox" id="toggle-all" data-ng-model="allChecked" data-ng-change="markAll(allChecked)" class="ng-pristine ng-valid">
+                            <label for="toggle-all">Mark all as done</label>
+                        </li>
+                        <li class="text-center">
+                            <span>
+                                <strong class="ng-binding">5</strong>
+                                <span class="text-muted" data-ng-pluralize="" count="remainingCount" when="{one: 'item left', other: 'items left'}">items left</span>
+                            </span>                            
+                        </li>
+                        <li class="text-right">
+                            <span class="clear-completed ng-binding ng-hide" data-ng-click="clearCompleted()" data-ng-show="remainingCount < tasks.length">Clear completed (0)</span>                            
+                        </li>
+                    </ul>
+                </footer>                
+            </section>
+            <div>
+  <%= link_to 'Add New Details', new_apartment_detail_path(@apartment) %> 
+</div>
+<div>
+  PROS
+</div>
+<ul class="pro">
+<% @apartment.details.each do |det| %>
+  <% if det.procon == "pro" %>
+    <li data-id=<%= det.id %>><%= det.content if det.content %></li>
+  <% end %>
+<% end %>
+</ul>
+
+<div>
+  CONS
+</div>
+<ul class="con">
+<% @apartment.details.each do |det| %>
+  <% if det.procon == "con" %>
+    <li data-id=<%= det.id %>><%= det.content if det.content %></li>
+  <% end %>
+<% end %>
+</ul>
+        </div>
+<!--       </div>
+ -->    </div>
+
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
         <table class="table table-hover">
@@ -101,7 +179,7 @@
           <%= form_for(deet) do |f| %>
           <div class="field">
             <%= f.label :procon, "Pro" %>
-            <%= f.radio_button :procon, "pro", :class => "pro" %><br>
+            <%= f.radio_button :procon, "pro", :class => "pro" %>
             <%= f.label :procon, "Con" %>
             <%= f.radio_button :procon, "con", :class => "con" %>
           </div>

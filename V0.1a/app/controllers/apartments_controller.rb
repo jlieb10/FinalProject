@@ -11,6 +11,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1.json
   def show
     @hunt = @apartment.hunt
+    @detail = Detail.new
   end
 
   # GET /hunts/:hunt_id/apartments/new

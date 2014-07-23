@@ -280,11 +280,8 @@ DEPENDENCIES
   letter_opener
   mechanize
   mini_magick
-<<<<<<< HEAD
   nokogiri
-=======
   owlcarousel-rails
->>>>>>> Working on image gallery
   paperclip
   pg
   pry

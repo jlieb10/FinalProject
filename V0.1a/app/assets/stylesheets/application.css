@@ -16,6 +16,7 @@
  *= require ui
  *= require owl.carousel
  *= require owl.theme
+ *= require jquery.bxslider.css
  *= require main
  *= require_self
  */
@@ -37,39 +38,43 @@ div.addnewcollab {
   float: right;
 }
 
-<<<<<<< HEAD
 .text-muted.text-small {
   font-size: 1em;
 }
-=======
-/*#owl-demo .owl-item div{
-  padding:5px;
-}
-#owl-demo .owl-item img{
-  display: block;
-  width: 100%;
-  height: auto;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
 
-.owl-wrapper-outer {
-  max-height: 400px;
-}*/
+.bx-wrapper .bx-pager {
+    bottom: -95px;
+  }
+  
+  .bx-wrapper .bx-pager a {
+    border: solid #ccc 1px;
+    display: block;
+    margin: 0 5px;
+    padding: 3px;
+  }
+  
+  .bx-wrapper .bx-pager a:hover,
+  .bx-wrapper .bx-pager a.active {
+    border: solid #5280DD 1px;
+  }
+  
+  .bx-wrapper {
+    margin-bottom: 120px;
+  }
 
-.gallery-wrap {
-  max-height: 400px;
-  width: 100%;
-}
+  .page-tasks .task-list .view label {
+    width: auto;
+    padding-left: 15px; 
+  }
 
-.gallery-wrap #image{
-border:4px #666 solid;
-max-height:100%;
-/*width:640px;*/}
+  .pro-label {
+     border-color: #ddf7eb;
+     background-color: #f2fcf9;
+     color: #229173;
+  }
 
-.thumb{
-float:left;
-margin-right:10px;
-margin-top:10px;}
->>>>>>> Working on image gallery
+  .con-label {
+     border-color: #fad7db;
+     background-color: #fdefee;
+     color: #b13d31;
+  }
