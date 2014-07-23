@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require vendor.js
-//= require ui.js
-//= require app.js
+//= require vendor
+//= require jquery.bxslider
+//= require ui
+//= require app
 //= require_tree .
 
 $(document).ready(function(){
@@ -47,35 +48,42 @@ $(document).ready(function(){
     var form = $('.apt-form')
     $('tbody.apartments').append(form)
   });
-});
 
-$(document).ready(function(){
   $('select.status').change(function(){
-      $.ajax({
-        type: 'Put',
-        url: "/apartments/" + $(this).attr('id'),
-        data: {"authenticity_token" : $("meta").last().attr("content"),
-        "apartment" : {"status" : $("option:selected", this).text()}
-      },
-      dataType: 'json',
-      success: function(data) {
-        $("#" + data.id + ".status_success").fadeIn(500);
-        $("#" + data.id + ".status_success").html("Status updated!");
-        $("#" + data.id + ".status_success").fadeOut(2000);
-      }
-    });
-     });
+    $.ajax({
+      type: 'Put',
+      url: "/apartments/" + $(this).attr('id'),
+      data: {"authenticity_token" : $("meta").last().attr("content"),
+      "apartment" : {"status" : $("option:selected", this).text()}
+    },
+    dataType: 'json',
+    success: function(data) {
+      $("#" + data.id + ".status_success").fadeIn(500);
+      $("#" + data.id + ".status_success").html("Status updated!");
+      $("#" + data.id + ".status_success").fadeOut(2000);
+    }
+  });
+  });
 
 //add apt form opens when the side nav link is clicked
-    $("a span.newapt").click(function(){
-      console.log("Clicked");
-      $("div .newaptcollapse").addClass("in").animate({height: "auto"},1500);
-    });
+$("a span.newapt").click(function(){
+  console.log("Clicked");
+  $("div .newaptcollapse").addClass("in").animate({height: "auto"},1500);
+});
 
 //add hunt form opens when the side nav link is clicked
-     $("a span.newhunt").click(function(){
-      console.log("Clicked");
-      $("div .newhuntcollapse").addClass("in").animate({height: "auto"},1500);
-    });
+$("a span.newhunt").click(function(){
+  console.log("Clicked");
+  $("div .newhuntcollapse").addClass("in").animate({height: "auto"},1500);
+});
+
+  $('.bxslider').bxSlider({
+    minSlides: 1,
+    maxSlides: 1,
+    slideWidth: 500,
+    slideMargin: 5,
+    adaptiveHeight: true,
+    mode: 'fade'
+  });
 });
 

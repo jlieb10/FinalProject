@@ -15,6 +15,7 @@
  *= require font-awesome
  *= require ui
  *= require main
+ *= require jquery.bxslider
  *= require_self
  */
 
@@ -22,7 +23,7 @@
   float: right;
  }
 
- .addnewapt:hover {
+ .addnewapt:hover, .addnewcollab:hover, .addnewimg:hover {
   text-decoration: none;
  }
 
@@ -30,7 +31,7 @@
   margin: 0 auto;
 }
 
-div.addnewcollab {
+div.addnewcollab, div.addnewimg {
   display: inline;
   float: right;
 }
@@ -38,3 +39,55 @@ div.addnewcollab {
 .text-muted.text-small {
   font-size: 1em;
 }
+
+.modal-content {
+  z-index: 3000;
+}
+
+.bxslider li {
+  margin-left: -40px;
+}
+
+.bxslider li img {
+  width: 100%;
+  border: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.bx-viewport {
+  min-width: 50%;
+  max-width: 100%;
+  min-height: 100px;
+  max-height: 400px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.bx-wrapper {
+  margin: 0 auto;
+}
+
+.bx-controls-direction {
+  text-align: center;
+}
+/*.bx-wrapper .bx-pager {
+    bottom: -95px;
+  }
+
+  .bx-wrapper .bx-pager a {
+    border: solid #ccc 1px;
+    display: block;
+    margin: 0 5px;
+    padding: 3px;
+  }
+
+  .bx-wrapper .bx-pager a:hover,
+  .bx-wrapper .bx-pager a.active {
+    border: solid #5280DD 1px;
+  }
+
+  .bx-wrapper {
+    margin-bottom: 120px;
+  }
+*/

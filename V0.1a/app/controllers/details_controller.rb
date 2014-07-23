@@ -14,8 +14,8 @@ class DetailsController < ApplicationController
 
   # GET /details/new
   def new
-    @apartment = Apartment.find(params[:apartment_id])
-    @detail = Detail.new
+    # @apartment = Apartment.find(params[:apartment_id])
+    # @detail = Detail.new
   end
 
   # GET /details/1/edit
@@ -26,7 +26,7 @@ class DetailsController < ApplicationController
   # POST /details.json
   def create
     @detail = Detail.new(detail_params)
-
+    @apartment = Apartment.find(params[:apartment_id])
     respond_to do |format|
       if @detail.save
         format.html { redirect_to @detail.apartment, notice: 'Detail was successfully created.' }
