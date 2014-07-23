@@ -32,10 +32,12 @@ class MyDevise::SessionsController < Devise::SessionsController
 
   private
     def check_referer
-      url = request.referrer
-      host = Addressable::URI.parse(url).host
-      if !host.match("craigslist.org")
-        redirect_to url
+      if request.referrer
+        url = request.referrer
+        host = Addressable::URI.parse(url).host
+        if !host.match("craigslist.org")
+          redirect_to url
+        end
       end
     end
 
