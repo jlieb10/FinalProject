@@ -1,7 +1,7 @@
 class BookmarkletsController < ApplicationController
 before_action :check_referer, only: [:index]
- 
- 	# GET /bookmarklets
+ 	
+  # GET /bookmarklets
   # GET /bookmarklets.json
   def index
     @url = params[:url]
@@ -12,12 +12,13 @@ before_action :check_referer, only: [:index]
   end
 
   private
-    def check_referer
-      url = request.referrer
-      host = Addressable::URI.parse(url).host
-    	if !host.match("craigslist.org")
+  def check_referer
+    cl_indicators = ["craigslist.org", "all housing", "postingbody"]
+    url = request.referer
+    contents = open(url) {|f| f.read }
+    if cl_indicators.any? { |indicator| !contents.include?(indicator) }
+  	# if !contents.include?("craigslist.org") || !contents.include?("all housing") || !contents.include?("postingbody")
         redirect_to url
-      end
     end
-
+  end
 end
