@@ -14,6 +14,9 @@
  *= require weather-icons
  *= require font-awesome
  *= require ui
+ *= require owl.carousel
+ *= require owl.theme
+ *= require jquery.bxslider.css
  *= require main
  *= require jquery.bxslider
  *= require_self
@@ -71,23 +74,30 @@ div.addnewcollab, div.addnewimg {
 .bx-controls-direction {
   text-align: center;
 }
-/*.bx-wrapper .bx-pager {
-    bottom: -95px;
-  }
 
-  .bx-wrapper .bx-pager a {
-    border: solid #ccc 1px;
-    display: block;
-    margin: 0 5px;
-    padding: 3px;
-  }
+.page-tasks .task-list .view {
+  padding: 0px;
+  border-bottom: 1px solid #ddd;
+  background-color: transparent; 
+}
 
-  .bx-wrapper .bx-pager a:hover,
-  .bx-wrapper .bx-pager a.active {
-    border: solid #5280DD 1px;
-  }
+.page-tasks .task-list .view label {
+  width: auto;
+  padding-left: 15px; 
+}
 
-  .bx-wrapper {
-    margin-bottom: 120px;
-  }
-*/
+.pro-label {
+   border-color: #ddf7eb;
+   background-color: #f2fcf9;
+   color: #229173;
+}
+
+.con-label {
+   border-color: #fad7db;
+   background-color: #fdefee;
+   color: #b13d31;
+}
+
+.page-tasks ul.task-list.list-unstyled .view{
+    background-color: transparent; 
+}

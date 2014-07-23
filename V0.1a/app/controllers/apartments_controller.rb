@@ -13,6 +13,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
     @detail = Detail.new(:apartment_id => @apartment.id)
     @hunt = @apartment.hunt
+    @detail = Detail.new
   end
 
   # GET /hunts/:hunt_id/apartments/new
