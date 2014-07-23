@@ -22,21 +22,22 @@
 
 
 <!---------- BASIC APARTMENT INFORMATION ---------->
-<div class="page ng-scope">
+<div class="page page-tasks ng-scope">
      <ol class="breadcrumb">
         <li><%= link_to "My Hunts", hunts_path %></a></li>
         <li><%= link_to @apartment.hunt.title, hunt_path(@hunt.id) %></a></li>
         <li class="active"><a href=""><%= @apartment.street %></a></li>
     </ol>
+  <div class="row">
     <div class="col-md-3">
-    <div class="panel panel-default">
-                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %> <%= @apartment.unit %> <%= @apartment.city %> <%= @apartment.state %> <%= @apartment.zip %></strong></div>
+     <div class="panel panel-default">
+          <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <%= @apartment.street %> <%= @apartment.unit %> <%= @apartment.city %> <%= @apartment.state %> <%= @apartment.zip %></strong></div>
                 <div class="panel-body">
                     <div class="media">
                         <div class="media-body">
                             <ul class="list-unstyled list-info">
                                 <li class="ng-binding">
-                                    <span class="icon glyphicon glyphicon-paperclip"></span>
+                                  <span class="icon glyphicon glyphicon-paperclip"></span>
                                     <label>Link:</label>
                                     <%= @apartment.link %>
                                 </li>
@@ -67,10 +68,9 @@
             </div>
           </div>
 
-<!---------- DETAILS ---------->
-    <div class="col-md-9">
-      <div class="panel panel-default">
-        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong>      <div ng-controller="ModalDemoCtrl" class="addnewcollab">
+<!---------- IMAGE GALLERY ---------->
+<div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Gallery:</span>
+          <div ng-controller="ModalDemoCtrl" class="addnewcollab">
       <script type="text/ng-template" id="inviteForm.html.erb">
         <%= render 'details/form' %>
     </script>
@@ -80,6 +80,78 @@
       </div>
     </strong>
       </div>
+    <div class= "col-md-6">
+      <ul class="bxslider">
+        <% @apartment.details.each do |detail| %>
+         <li><%= image_tag detail.image_url(:thumb) if detail.image_url %></li>
+          <% end %>
+        </ul>
+        </div>
+      </div>
+    <div class="divider"></div>
+
+<!---------- DETAILS ---------->
+    <div class="row">
+    <div class="col-md-12">
+            <section class="task-container ng-scope" data-ng-controller="taskCtrl">
+
+                <%= render 'details/form2' %>
+              <div class="divider"></div>
+              <div class="panel panel-default">
+                <section>
+                    <ul class="filters list-inline nav nav-tabs">
+                        <li data-ng-class="{active: statusFilter == ''}">
+                            <a href="" data-toggle="tab" data-ng-click="filter('active')">All</a>
+                        </li>
+                        <li data-ng-class="{active: statusFilter.completed == true }" class="active">
+                            <a href="" data-toggle="tab" data-ng-click="filter('all')">Pro</a>
+                        </li>
+                        <li data-ng-class="{active: statusFilter.completed == false }">
+                            <a href="" data-toggle="tab" data-ng-click="filter('completed')">Con</a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <ul class="task-list list-unstyled">
+                      <% @apartment.details.each do |detail| %>
+                        <li  class="ng-scope">
+                            <span class="view">
+                                <label data-ng-dblclick="edit(task)" class="ng-binding"><%= detail.content if detail.content %></label>
+                                <span class="glyphicon glyphicon-pencil" data-ng-click="edit(task)"></span>
+                                <span class="glyphicon glyphicon-remove" data-ng-click="remove(task, $index)"></span>
+                            </span>
+                        </li>
+                        <%end%>
+                    </ul>
+                </section>
+
+                <footer class="task-footer">
+                    <ul class="list-inline clearfix">
+                        <li class="first-item">
+                            <input type="checkbox" id="toggle-all" data-ng-model="allChecked" data-ng-change="markAll(allChecked)" class="ng-pristine ng-valid">
+                            <label for="toggle-all">Mark all as done</label>
+                        </li>
+                        <li class="text-center">
+                            <span>
+                                <strong class="ng-binding">5</strong>
+                                <span class="text-muted" data-ng-pluralize="" count="remainingCount" when="{one: 'item left', other: 'items left'}">items left</span>
+                            </span>
+                        </li>
+                        <li class="text-right">
+                            <span class="clear-completed ng-binding ng-hide" data-ng-click="clearCompleted()" data-ng-show="remainingCount < tasks.length">Clear completed (0)</span>
+                        </li>
+                    </ul>
+                </footer>
+
+            </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span>Details:</span></strong></div>
         <table class="table table-hover">
     <thead>
       <tr>
