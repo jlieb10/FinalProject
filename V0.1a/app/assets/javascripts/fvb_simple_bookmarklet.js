@@ -17,7 +17,7 @@
       }
 
       var no = document.createElement('a')
-      no.appendChild(document.createTextNode('Nevermind.'))
+      no.appendChild(document.createTextNode(' Nevermind.'))
       no.onclick = function(){
         document.body.removeChild(div);
       }
