@@ -33,8 +33,10 @@
           <% @hunts.uniq.each do |hunt| %>
             <tr>
               <td><%= link_to "#{hunt.title}", hunt %></td>
-              <td><% hunt.users.each do |user| %>
-                <%=user.name%> <%end%></td>
+              <td><% hunt.users.uniq.each do |user| %>
+                <%= user.name %>
+              <%end%>
+              </td>
               <td><%=hunt.created_at.strftime("%m/%d/%Y")%></td>
               <td><%= link_to 'Edit', edit_hunt_path(hunt) %></td>
               <td><%= link_to 'Delete', hunt, method: :delete, data: { confirm: 'Are you sure?' } %></td>

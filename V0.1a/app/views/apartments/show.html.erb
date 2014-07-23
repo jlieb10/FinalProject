@@ -90,7 +90,9 @@
                   <div class="media-body">
                     <ul class="bxslider">
                       <% @apartment.details.each do |detail| %>
-                      <li><%= image_tag detail.image_url(:gallery) if detail.image_url %></li>
+                      <% if detail.image_url %>
+                      <li><%= image_tag detail.image_url(:gallery) %></li>
+                      <% end %>
                       <% end %>
                     </ul>
                   </div>
