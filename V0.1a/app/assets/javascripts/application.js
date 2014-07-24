@@ -95,3 +95,7 @@ $("a span.newhunt").click(function(){
   });
 });
 
+$('input.con, input.pro').load(function(){
+  var form = $(this.form)
+  debugger
+});

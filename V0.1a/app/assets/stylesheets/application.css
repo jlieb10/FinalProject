@@ -78,12 +78,12 @@ div.addnewcollab, div.addnewimg {
 .page-tasks .task-list .view {
   padding: 0px;
   border-bottom: 1px solid #ddd;
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .page-tasks .task-list .view label {
   width: auto;
-  padding-left: 15px; 
+  padding-left: 15px;
 }
 
 .pro-label {
@@ -99,5 +99,5 @@ div.addnewcollab, div.addnewimg {
 }
 
 .page-tasks ul.task-list.list-unstyled .view{
-    background-color: transparent; 
+    background-color: transparent;
 }
