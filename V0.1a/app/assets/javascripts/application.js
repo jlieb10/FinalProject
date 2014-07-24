@@ -33,13 +33,21 @@ $(document).ready(function(){
       data: data,
       dataType: 'json'
     }).success(function(data){
-      $('li[data-id="' + data.id + '"]').remove();
-      var listItem = "<li data-id='"+ data.id + "'>" + data.content + "</li>"
-      if (data.procon === "pro") {
-        $("ul.pro").append(listItem);
-      }
+      // $('li[data-id="' + data.id + '"]').remove();
+      // var listItem = "<li data-id='"+ data.id + "'>" + data.content + "</li>"
+      // if (data.procon === "pro") {
+      //   $("ul.pro").append(listItem);
+      // }
+      // else {
+      //   $("ul.con").append(listItem);
+      // }
+       if (data.procon === "pro") {
+        form.parents(".page-tasks .task-list .view").removeClass("con-label");
+        form.parents(".page-tasks .task-list .view").addClass("pro-label");
+        }
       else {
-        $("ul.con").append(listItem);
+        form.parents(".page-tasks .task-list .view").removeClass("pro-label");
+        form.parents(".page-tasks .task-list .view").addClass("con-label");
       }
     });
   });
@@ -87,3 +95,7 @@ $("a span.newhunt").click(function(){
   });
 });
 
+$('input.con, input.pro').load(function(){
+  var form = $(this.form)
+  debugger
+});
