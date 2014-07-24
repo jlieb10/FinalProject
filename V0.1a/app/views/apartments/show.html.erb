@@ -111,22 +111,7 @@
               <% @apartment.details.each do |detail| %>
               <% if detail.content != "" %>
               <li  class="ng-scope">
-                <div class="row view">
-                  <div class="col-sm-10">
-                    <label data-ng-dblclick="edit(task)" class="ng-binding"><%= detail.content %></label>
-                  </div>
-                  <div class="col-sm-2"><%= form_for(detail) do |f| %>
-                    <div class="field">
-                      <%= f.label :procon, "Pro", :class=>"ui-radio"%>
-                      <%= f.radio_button :procon, "pro", :class => "pro" %>
-                      <%= f.label :procon, "Con", :class=>"ui-radio"%>
-                      <%= f.radio_button :procon, "con", :class => "con"%>
-                    </div>
-                    <%end%>
-                  </div>
-                  <span class="glyphicon glyphicon-pencil"></span>
-                  <%= link_to detail_path(detail), method: :delete do %><span class="glyphicon glyphicon-remove"></span><%end%>
-                </div>
+<!------ --> <%= render_details detail %>
               </li>
               <% end%>
               <%end%>
