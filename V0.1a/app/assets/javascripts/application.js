@@ -93,9 +93,60 @@ $("a span.newhunt").click(function(){
     adaptiveHeight: true,
     mode: 'fade'
   });
-});
 
-$('input.con, input.pro').load(function(){
-  var form = $(this.form)
-  debugger
+  var geocoder;
+  var map;
+  var markersArray = [];
+  var bounds;
+  var address = $('#address').text();
+  var locationsArray = [];
+  var infowindow = new google.maps.InfoWindow();
+
+  function initialize() {
+    address = $('#address').text();
+    geocoder = new google.maps.Geocoder();
+    bounds = new google.maps.LatLngBounds ();
+
+    var myOptions = {
+      maxZoom: 15,
+
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      navigationControlOptions: {
+        style: google.maps.NavigationControlStyle.SMALL
+      }
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    codeAddresses(address);
+  }
+
+  function codeAddresses(address){
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(address);
+          infowindow.open(map, this);
+        });
+
+        bounds.extend(results[0].geometry.location);
+
+        markersArray.push(marker);
+      }
+
+      else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+
+      map.fitBounds(bounds);
+    });
+  }
+
+  $(function() {
+    google.maps.event.addDomListener(window, 'load', initialize);
+  });
 });
