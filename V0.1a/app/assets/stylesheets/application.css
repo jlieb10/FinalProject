@@ -78,7 +78,6 @@ div.addnewcollab, div.addnewimg {
 .page-tasks .task-list .view {
   padding: 0px;
   border-bottom: 1px solid #ddd;
-  background-color: transparent; 
 }
 
 .page-tasks .task-list .view label {
@@ -89,15 +88,13 @@ div.addnewcollab, div.addnewimg {
 .pro-label {
    border-color: #ddf7eb;
    background-color: #f2fcf9;
-   color: #229173;
-}
+/*   color: #229173;
+*/}
 
 .con-label {
    border-color: #fad7db;
    background-color: #fdefee;
-   color: #b13d31;
-}
+/*   color: #b13d31;
+*/}
 
-.page-tasks ul.task-list.list-unstyled .view{
-    background-color: transparent; 
-}
+
