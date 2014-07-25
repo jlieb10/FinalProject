@@ -14,10 +14,11 @@ before_action :check_referer, only: [:index]
   private
   def check_referer
     url = request.referer
-    if !url.match("craigslist.com")
+    if !url.match("craigslist.org")
+      binding.pry
       redirect_to url
     else
-      cl_indicators = ["craigslist.org", "all housing", "postingbody"]
+      cl_indicators = ["all housing", "postingbody"]
       contents = open(url) {|f| f.read }
       if cl_indicators.any? { |indicator| !contents.include?(indicator) }
         redirect_to url
