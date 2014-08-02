@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require vendor
+//= require jquery.step
+//= require jquery.select
 //= require jquery.bxslider
-//= require ui
 //= require app
 //= require_tree .
 
